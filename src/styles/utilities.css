@@ -1,3 +1,13 @@
-.p-block-mobile {
-  padding-block: 0.5rem 1rem;
+@layer utilities {
+  .p-block-mobile {
+    padding-block: 0.8rem 1rem;
+  }
+
+  .tr-200-ease-out {
+    transition: 0.2s ease-out;
+  }
+
+  .p-card-sm {
+    padding: 0.8em 0.9em;
+  }
 }

@@ -1,0 +1,25 @@
+@import "variables.css";
+
+@layer components {
+  .button-dark {
+    background-color: var(--neutral-800);
+    border-radius: var(--border-r-sm);
+    color: var(--neutral-200);
+    padding: 0.5em 0.8em;
+    cursor: pointer;
+    border: none;
+  }
+
+  .button-dark .tr-200-ease-out {
+    transition-property: background;
+  }
+
+  .button-dark:hover {
+    background-color: var(--neutral-700);
+  }
+
+  .card {
+    background-color: var(--neutral-800);
+    border-radius: var(--border-r-sm);
+  }
+}

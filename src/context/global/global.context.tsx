@@ -18,7 +18,7 @@ const INITIAL_STATE: GlobalState = {
 
 const GlobalContext = createContext<GlobalContextProps | null>(null);
 
-export const GlobalProvider = ({ children }: GlobalProviderProps) => {
+export function GlobalProvider({ children }: GlobalProviderProps) {
   const [state, dispatch] = useReducer(globalContextReducer, INITIAL_STATE);
 
   return (
@@ -26,7 +26,13 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
       {children}
     </GlobalContext.Provider>
   );
-};
+}
 
-export const useGlobalContext = () =>
-  useContext(GlobalContext) as GlobalContextProps;
+export function useGlobalContext() {
+  const context = useContext(GlobalContext) as GlobalContextProps;
+
+  if (!context)
+    throw new Error("Global components must be used within <GlobalProvider />");
+
+  return context;
+}
