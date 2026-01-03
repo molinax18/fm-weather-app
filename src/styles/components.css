@@ -23,6 +23,12 @@
     border-radius: var(--border-r-sm);
   }
 
+  .title {
+    font-family: var(--ff-bricolage-grotesque);
+    font-weight: 700;
+    color: var(--neutral-0);
+  }
+
   .subtitle {
     font-family: var(--ff-bricolage-grotesque);
     font-weight: 400;

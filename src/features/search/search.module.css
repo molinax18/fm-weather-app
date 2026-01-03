@@ -1,0 +1,24 @@
+.search-wrapper {
+  gap: 1rem;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding-inline: 1em;
+}
+
+.search-input {
+  flex-grow: 1;
+
+  background: transparent;
+  padding: 0.3em;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--neutral-300);
+  font-weight: 500;
+}

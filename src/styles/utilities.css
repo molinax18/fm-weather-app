@@ -20,7 +20,11 @@
     padding: 0.4em 0.5em;
   }
 
-  .text-preset-small {
+  .text-preset-sm {
     font-size: var(--fs-sm);
+  }
+
+  .text-preset-lg {
+    font-size: var(--fs-lg);
   }
 }

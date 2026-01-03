@@ -34,6 +34,7 @@
   select {
     font: inherit;
     color: inherit;
+    border: none;
   }
 
   button {

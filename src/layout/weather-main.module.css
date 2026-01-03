@@ -1,4 +1,6 @@
 .weather-main {
+  gap: 2rem;
+
   margin-inline: auto;
   width: 90%;
   max-width: 1400px;

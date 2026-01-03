@@ -12,7 +12,7 @@ export default function UnitSection({ setting }: Props) {
   return (
     <section className={`flex-col ${style["unit-section"]}`}>
       <h4
-        className={`subtitle text-preset-small ${style["unit-section-subtitle"]}`}
+        className={`subtitle text-preset-sm ${style["unit-section-subtitle"]}`}
       >
         {label}
       </h4>
