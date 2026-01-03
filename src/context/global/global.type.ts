@@ -1,10 +1,10 @@
-import type { ActionDispatch, ReactNode } from 'react';
+import type { ActionDispatch, ReactNode } from "react";
 import type {
   Measurement,
   Precipitation,
   Temperature,
   WindSpeed,
-} from '@/types/units';
+} from "@/types/units";
 
 export interface CountryConfig {
   measurementSystem: Measurement;
@@ -23,7 +23,7 @@ export interface GlobalState {
   countryInfo: CountryInfo | null;
 }
 
-export interface GlobalProvider {
+export interface GlobalProviderProps {
   children: ReactNode;
 }
 

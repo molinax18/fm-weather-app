@@ -1,3 +1,10 @@
+import WeatherMainLayout from "@/layout/weather-main";
+import Header from "@/sections/header/header";
+
 export default function App() {
-  return <div>App</div>;
+  return (
+    <WeatherMainLayout>
+      <Header />
+    </WeatherMainLayout>
+  );
 }

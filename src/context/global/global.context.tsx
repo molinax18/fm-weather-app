@@ -1,24 +1,24 @@
-import { globalContextReducer } from './global.reducer';
+import { createContext, useContext, useReducer } from "react";
+import { globalContextReducer } from "./global.reducer";
 import type {
   GlobalContextProps,
-  GlobalProvider,
+  GlobalProviderProps,
   GlobalState,
-} from './global.type';
-import { createContext, useContext, useReducer } from 'react';
+} from "./global.type";
 
 const INITIAL_STATE: GlobalState = {
   countryConfig: {
-    measurementSystem: 'imperial',
-    temperature: 'celsius',
-    windSpeed: 'kmh',
-    precipitation: 'mm',
+    measurementSystem: "imperial",
+    temperature: "celsius",
+    windSpeed: "kmh",
+    precipitation: "mm",
   },
   countryInfo: null,
 } as const;
 
 const GlobalContext = createContext<GlobalContextProps | null>(null);
 
-export const GlobalContextProvider = ({ children }: GlobalProvider) => {
+export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const [state, dispatch] = useReducer(globalContextReducer, INITIAL_STATE);
 
   return (
