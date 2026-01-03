@@ -3,9 +3,3 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.header-dropdown-button {
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-}

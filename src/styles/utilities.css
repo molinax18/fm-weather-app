@@ -1,4 +1,9 @@
 @layer utilities {
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
   .p-block-mobile {
     padding-block: 0.8rem 1rem;
   }
@@ -9,5 +14,13 @@
 
   .p-card-sm {
     padding: 0.8em 0.9em;
+  }
+
+  .p-card-xs {
+    padding: 0.6em 0.7em;
+  }
+
+  .text-preset-small {
+    font-size: var(--fs-sm);
   }
 }

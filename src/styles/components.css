@@ -22,4 +22,10 @@
     background-color: var(--neutral-800);
     border-radius: var(--border-r-sm);
   }
+
+  .subtitle {
+    font-family: var(--ff-bricolage-grotesque);
+    font-weight: 400;
+    color: var(--neutral-300);
+  }
 }

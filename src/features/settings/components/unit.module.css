@@ -1,0 +1,36 @@
+.unit-dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.unit-dropdown-menu {
+  width: max-content;
+}
+
+.unit-content-wrapper {
+  gap: 0.4rem;
+}
+
+.unit-section {
+  gap: 0.2rem;
+
+  padding-block: 0.4rem;
+}
+
+.unit-section {
+  border-bottom: 1px solid var(--neutral-600);
+}
+
+.unit-section:last-child {
+  border: none;
+}
+
+.unit-section-subtitle {
+  padding-left: 0.5em;
+}
+
+.unit-item button {
+  text-align: left;
+  width: 100%;
+}
