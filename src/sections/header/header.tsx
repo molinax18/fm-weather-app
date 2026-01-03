@@ -1,5 +1,5 @@
 import { WeatherLogo } from "@/shared/ui/svg";
-import UnitDropdown from "@/features/settings/components/unit-dropdown";
+import UnitDropdown from "@/features/unit-settings/components/unit-dropdown";
 import style from "./header.module.css";
 
 export default function Header() {

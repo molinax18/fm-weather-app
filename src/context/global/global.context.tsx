@@ -9,9 +9,9 @@ import type {
 const INITIAL_STATE: GlobalState = {
   countryConfig: {
     measurementSystem: "imperial",
-    temperature: "celsius",
-    windSpeed: "kmh",
-    precipitation: "mm",
+    temperature: "fahrenheit",
+    windSpeed: "mph",
+    precipitation: "in",
   },
   countryInfo: null,
 } as const;

@@ -29,5 +29,14 @@ export interface GlobalProviderProps {
 
 export interface GlobalContextProps {
   state: GlobalState;
-  dispatch: ActionDispatch<[action: null]>;
+  dispatch: ActionDispatch<[action: GlobalActionType]>;
 }
+
+export type GlobalActionType =
+  | {
+      type: "TOGGLE_MEASUREMENT_SYSTEM";
+    }
+  | {
+      type: "HANDLE_MEASUREMENTS_CONFIG";
+      payload: Partial<Omit<CountryConfig, "measurementSystem">>;
+    };
