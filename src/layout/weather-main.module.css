@@ -1,5 +1,5 @@
 .weather-main {
-  gap: 2rem;
+  gap: var(--spacing-lg);
 
   margin-inline: auto;
   width: 90%;

@@ -1,5 +1,5 @@
 .hero-wrapper {
-  gap: 2rem;
+  gap: var(--spacing-lg);
 
   text-align: center;
 }

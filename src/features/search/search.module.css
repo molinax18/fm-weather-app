@@ -1,11 +1,11 @@
 .search-wrapper {
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .search-input-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--spacing-md);
 
   padding-inline: 1em;
 }

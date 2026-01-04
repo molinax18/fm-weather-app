@@ -10,7 +10,7 @@
 }
 
 .unit-content-wrapper {
-  gap: 0.4rem;
+  gap: var(--spacing-xs);
 }
 
 .unit-content-button {
@@ -19,9 +19,9 @@
 }
 
 .unit-section {
-  gap: 0.4rem;
+  gap: var(--spacing-xs);
 
-  padding-block: 0.4rem;
+  padding-block: var(--spacing-xs);
   border-bottom: 1px solid var(--neutral-600);
 }
 
@@ -34,14 +34,14 @@
 }
 
 .unit-section-list {
-  gap: 0.4rem;
+  gap: var(--spacing-xs);
 }
 
 .unit-item button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--spacing-md);
 
   text-align: left;
   width: 100%;
