@@ -1,0 +1,28 @@
+@import "../variables.css";
+
+@layer components {
+  .button[data-theme="dark"] {
+    background-color: var(--neutral-800);
+  }
+
+  .button[data-theme="dark"]:hover {
+    background-color: var(--neutral-700);
+  }
+
+  .button[data-theme="blue"] {
+    background-color: var(--blue-700);
+  }
+
+  .button[data-theme="blue"]:hover {
+    background-color: var(--blue-500);
+  }
+
+  .button {
+    border: none;
+    border-radius: var(--border-r-sm);
+    color: var(--neutral-200);
+    cursor: pointer;
+    padding: 0.5em 0.8em;
+    transition: background 0.2s ease-out;
+  }
+}

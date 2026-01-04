@@ -18,7 +18,7 @@ export default function Search() {
         />
       </Input>
 
-      <Button type="submit" className="p-card-sm">
+      <Button type="submit" className="p-card-sm" buttonTheme="blue">
         Search
       </Button>
     </form>

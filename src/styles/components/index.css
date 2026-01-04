@@ -1,0 +1,21 @@
+@import "../variables.css";
+@import "button.css";
+
+@layer components {
+  .card {
+    background-color: var(--neutral-800);
+    border-radius: var(--border-r-sm);
+  }
+
+  .title {
+    font-family: var(--ff-bricolage-grotesque);
+    font-weight: 700;
+    color: var(--neutral-0);
+  }
+
+  .subtitle {
+    font-family: var(--ff-bricolage-grotesque);
+    font-weight: 400;
+    color: var(--neutral-300);
+  }
+}
