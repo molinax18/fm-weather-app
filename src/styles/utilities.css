@@ -23,4 +23,8 @@
   .text-preset-lg {
     font-size: var(--fs-lg);
   }
+
+  .text-preset-xl {
+    font-size: var(--fs-xl);
+  }
 }

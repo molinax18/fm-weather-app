@@ -13,7 +13,7 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
       wind_kph,
       wind_mph,
     },
-    location: { name, country, tz_id },
+    location: { name, country, localtime },
     forecast: { forecastday },
   } = data;
 
@@ -37,22 +37,24 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
     location: {
       city: name,
       country: country,
-      timezone: tz_id,
       condition: condition.text,
+      temperature: {
+        celsius: temp_c,
+        fahrenheit: temp_f,
+      },
+      time: localtime,
     },
     forecast: {
       day: forecastday.map((day) => ({
-        day: {
-          condition: day.day.condition.text,
-          temperature: {
-            max: {
-              celsius: day.day.maxtemp_c,
-              fahrenheit: day.day.maxtemp_f,
-            },
-            min: {
-              celsius: day.day.mintemp_c,
-              fahrenheit: day.day.mintemp_f,
-            },
+        condition: day.day.condition.text,
+        temperature: {
+          max: {
+            celsius: day.day.maxtemp_c,
+            fahrenheit: day.day.maxtemp_f,
+          },
+          min: {
+            celsius: day.day.mintemp_c,
+            fahrenheit: day.day.mintemp_f,
           },
         },
       })),

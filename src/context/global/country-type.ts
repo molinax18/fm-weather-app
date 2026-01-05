@@ -10,14 +10,18 @@ interface CountryForecast {
   hour: CountryHour[];
 }
 
-interface CountryLocation {
+export interface CountryLocation {
   city: string;
   country: string;
-  timezone: string;
   condition: string;
+  temperature: {
+    celsius: number;
+    fahrenheit: number;
+  };
+  time: string;
 }
 
-interface CountryCurrent {
+export interface CountryCurrent {
   feelsLike: {
     celsius: number;
     fahrenheit: number;
@@ -35,19 +39,17 @@ interface CountryCurrent {
 }
 
 interface CountryDay {
-  day: {
-    temperature: {
-      max: {
-        celsius: number;
-        fahrenheit: number;
-      };
-      min: {
-        celsius: number;
-        fahrenheit: number;
-      };
+  temperature: {
+    max: {
+      celsius: number;
+      fahrenheit: number;
     };
-    condition: string;
+    min: {
+      celsius: number;
+      fahrenheit: number;
+    };
   };
+  condition: string;
 }
 
 interface CountryHour {

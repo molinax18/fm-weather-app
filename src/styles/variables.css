@@ -18,9 +18,11 @@
   --ff-bricolage-grotesque: "Bricolage Grotesque", sans-serif;
 
   --border-r-sm: 0.3rem;
+  --border-r-lg: 1rem;
 
   --fs-sm: 0.9rem;
   --fs-lg: 2rem;
+  --fs-xl: 4rem;
 
   --spacing-xs: 0.4rem;
   --spacing-md: 1rem;
