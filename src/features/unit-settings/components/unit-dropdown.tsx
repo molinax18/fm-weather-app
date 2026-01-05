@@ -1,5 +1,5 @@
-import { DropdownIcon, UnitIcon } from "@/shared/ui/svg";
-import Dropdown from "@/shared/ui/dropdown/components/dropdown";
+import { DropdownIcon, UnitIcon } from "@/shared/components/svg";
+import Dropdown from "@/shared/components/dropdown/components/dropdown";
 import UnitContent from "./unit-content";
 import style from "./unit.module.css";
 

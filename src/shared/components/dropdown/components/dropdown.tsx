@@ -1,6 +1,6 @@
 import { useRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
-import { useDropdown } from "@/shared/ui/dropdown/dropdown.hook";
-import { DropdownContext } from "@/shared/ui/dropdown/dropdown.context";
+import { useDropdown } from "@/shared/components/dropdown/dropdown.hook";
+import { DropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import Trigger from "./dropdown-trigger";
 import Menu from "./dropdown-menu";
 import style from "./dropdown.module.css";

@@ -1,6 +1,6 @@
-import { SearchIcon } from "@/shared/ui/svg";
-import Input from "@/shared/ui/input/components/input-root";
-import Button from "@/shared/ui/button/button";
+import { SearchIcon } from "@/shared/components/svg";
+import Input from "@/shared/components/input/components/input-root";
+import Button from "@/shared/components/button/button";
 import style from "./search.module.css";
 
 export default function Search() {

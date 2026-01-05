@@ -3,8 +3,8 @@ import type {
   UnitSettingOption,
 } from "@/features/unit-settings/unit.type";
 import { useGlobalContext } from "@/context/global/global.context";
-import CheckmarkIcon from "@/shared/ui/svg/checkmark-icon";
-import Button from "@/shared/ui/button/button";
+import CheckmarkIcon from "@/shared/components/svg/checkmark-icon";
+import Button from "@/shared/components/button/button";
 import style from "./unit.module.css";
 
 interface Props {

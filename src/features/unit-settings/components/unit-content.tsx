@@ -1,8 +1,8 @@
 import { UNIT_SETTINGS } from "@/features/unit-settings/unit.constant";
 import { useGlobalContext } from "@/context/global/global.context";
-import { toCapitalize } from "@/utils/capitalize";
-import type { Measurement } from "@/types/units";
-import Button from "@/shared/ui/button/button";
+import { toCapitalize } from "@/shared/utils/capitalize";
+import type { Measurement } from "@/shared/types/units";
+import Button from "@/shared/components/button/button";
 import UnitSection from "./unit-section";
 import style from "./unit.module.css";
 

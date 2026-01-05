@@ -1,5 +1,5 @@
 import type { ReactNode, ComponentPropsWithoutRef } from "react";
-import { InputContext } from "@/shared/ui/input/input.context";
+import { InputContext } from "@/shared/components/input/input.context";
 import Label from "./input-label";
 import Control from "./input-control";
 

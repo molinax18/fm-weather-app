@@ -1,22 +1,5 @@
 import type { ActionDispatch, ReactNode } from "react";
-import type {
-  Measurement,
-  Precipitation,
-  Temperature,
-  WindSpeed,
-} from "@/types/units";
-
-export interface CountryConfig {
-  measurementSystem: Measurement;
-  temperature: Temperature;
-  windSpeed: WindSpeed;
-  precipitation: Precipitation;
-}
-
-export interface CountryInfo {
-  name: string;
-  location: string;
-}
+import type { CountryConfig, CountryInfo } from "./country-type";
 
 export interface GlobalState {
   countryConfig: CountryConfig;
@@ -39,4 +22,8 @@ export type GlobalActionType =
   | {
       type: "HANDLE_MEASUREMENTS_CONFIG";
       payload: Partial<Omit<CountryConfig, "measurementSystem">>;
+    }
+  | {
+      type: "SET_LOCATION";
+      payload: CountryInfo | null;
     };

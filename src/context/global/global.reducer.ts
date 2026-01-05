@@ -37,6 +37,14 @@ export function globalContextReducer(
         },
       };
 
+    case "SET_LOCATION":
+      const data = action.payload;
+
+      return {
+        ...state,
+        countryInfo: data,
+      };
+
     default:
       return state;
   }

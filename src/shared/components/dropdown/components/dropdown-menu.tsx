@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { useDropdownContext } from "@/shared/ui/dropdown/dropdown.context";
+import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import style from "./dropdown.module.css";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {

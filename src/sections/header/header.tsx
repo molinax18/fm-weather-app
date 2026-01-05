@@ -1,4 +1,4 @@
-import { WeatherLogo } from "@/shared/ui/svg";
+import { WeatherLogo } from "@/shared/components/svg";
 import UnitDropdown from "@/features/unit-settings/components/unit-dropdown";
 import style from "./header.module.css";
 
