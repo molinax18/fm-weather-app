@@ -10,5 +10,10 @@ export default function WeatherManager() {
     return <span>Loading...</span>;
   }
 
-  return <CurrentWeather location={countryInfo.location} />;
+  return (
+    <CurrentWeather
+      location={countryInfo.location}
+      current={countryInfo.current}
+    />
+  );
 }

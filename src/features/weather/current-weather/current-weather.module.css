@@ -1,3 +1,7 @@
+.current-weather {
+  gap: var(--spacing-lg);
+}
+
 .current-weather-card {
   display: flex;
   flex-direction: column;
@@ -27,4 +31,18 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
+}
+
+.current-weather-units {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.current-weather-unit-card {
+  gap: var(--spacing-md);
+}
+
+.current-weather-unit-card-value {
+  font-size: 1.2rem;
 }

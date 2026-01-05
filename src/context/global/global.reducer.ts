@@ -12,7 +12,7 @@ export function globalContextReducer(
           countryConfig: {
             measurementSystem: "metric",
             temperature: "celsius",
-            windSpeed: "kmh",
+            windSpeed: "kph",
             precipitation: "mm",
           },
         };

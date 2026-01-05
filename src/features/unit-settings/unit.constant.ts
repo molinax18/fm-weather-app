@@ -13,7 +13,7 @@ export const UNIT_SETTINGS: UnitSetting[] = [
     label: "Wind Speed",
     type: "windSpeed",
     options: [
-      { label: "km/h", value: "kmh" },
+      { label: "km/h", value: "kph" },
       { label: "mph", value: "mph" },
     ],
   },

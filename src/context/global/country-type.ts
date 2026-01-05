@@ -34,6 +34,10 @@ export interface CountryCurrent {
     mph: number;
     kph: number;
   };
+  precipitation: {
+    mm: number;
+    in: number;
+  };
   humidity: number;
   condition: string;
 }

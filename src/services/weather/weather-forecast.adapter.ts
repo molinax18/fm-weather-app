@@ -12,6 +12,8 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
       temp_f,
       wind_kph,
       wind_mph,
+      precip_in,
+      precip_mm,
     },
     location: { name, country, localtime },
     forecast: { forecastday },
@@ -32,6 +34,10 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
       wind: {
         kph: wind_kph,
         mph: wind_mph,
+      },
+      precipitation: {
+        mm: precip_mm,
+        in: precip_in,
       },
     },
     location: {
