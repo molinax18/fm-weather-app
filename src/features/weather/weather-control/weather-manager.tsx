@@ -2,18 +2,16 @@ import { useGlobalContext } from "@/context/global/global.context";
 import CurrentWeather from "@/features/weather/current-weather/current-weather";
 
 export default function WeatherManager() {
-  const {
-    state: { countryInfo },
-  } = useGlobalContext();
+  const { state } = useGlobalContext();
 
-  if (countryInfo === null) {
-    return <span>Loading...</span>;
+  if (!state || !state.countryInfo) {
+    return <p>Cargando clima...</p>;
   }
 
   return (
     <CurrentWeather
-      location={countryInfo.location}
-      current={countryInfo.current}
+      location={state.countryInfo.location}
+      current={state.countryInfo.current}
     />
   );
 }

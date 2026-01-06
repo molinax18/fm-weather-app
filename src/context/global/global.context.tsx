@@ -31,8 +31,11 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
         const saved = localStorage.getItem("weatherData");
         if (!saved) return initial;
 
-        const parsed = JSON.parse(saved);
-        return parsed.state || initial;
+        const { weatherInfo: savedState, timestamp } = JSON.parse(saved);
+        const halfHour = 60 * 60 * 1000;
+        const isExpired = Date.now() - timestamp > halfHour;
+
+        return isExpired ? initial : savedState;
       } catch {
         return initial;
       }
