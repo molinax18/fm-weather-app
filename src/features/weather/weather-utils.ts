@@ -1,8 +1,10 @@
 import type {
+  Condition,
   Precipitation,
   Temperature,
   WindSpeed,
 } from "@/shared/types/units";
+import { WEATHER_ICONS } from "./weather-icons.constant";
 
 type TempUnit = { celsius: number; fahrenheit: number };
 type WindUnit = { kph: number; mph: number };
@@ -30,4 +32,8 @@ export const formatPrecipitation = (
   return unit === "mm"
     ? `${Math.round(values.mm)} mm`
     : `${Math.round(values.in)} in`;
+};
+
+export const displayWeatherIcon = (condition: Condition) => {
+  return WEATHER_ICONS[condition] || WEATHER_ICONS["Sunny"];
 };

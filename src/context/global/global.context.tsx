@@ -9,6 +9,7 @@ import { DEFAULT_PARAMS } from "@/services/weather/weather.constant";
 import { getWeatherForecastData } from "@/services/weather/weather-forecast.service";
 import { getApproximateUserLocation } from "@/services/user-location.service";
 
+const localStorage = window.localStorage;
 const INITIAL_STATE: GlobalState = {
   countryConfig: {
     measurementSystem: "imperial",
@@ -22,21 +23,48 @@ const INITIAL_STATE: GlobalState = {
 const GlobalContext = createContext<GlobalContextProps | null>(null);
 
 export function GlobalProvider({ children }: GlobalProviderProps) {
-  const [state, dispatch] = useReducer(globalContextReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(
+    globalContextReducer,
+    INITIAL_STATE,
+    (initial) => {
+      try {
+        const saved = localStorage.getItem("weatherData");
+        if (!saved) return initial;
+
+        const parsed = JSON.parse(saved);
+        return parsed.state || initial;
+      } catch {
+        return initial;
+      }
+    },
+  );
 
   useEffect(() => {
     async function getWeatherForecast() {
-      const { city } = await getApproximateUserLocation();
-      const data = await getWeatherForecastData({
-        ...DEFAULT_PARAMS,
-        q: city || DEFAULT_PARAMS.q,
-      });
-
-      dispatch({ type: "SET_LOCATION", payload: data });
+      try {
+        const { city } = await getApproximateUserLocation();
+        const data = await getWeatherForecastData({
+          ...DEFAULT_PARAMS,
+          q: city || DEFAULT_PARAMS.q,
+        });
+        dispatch({ type: "SET_LOCATION", payload: data });
+      } catch (error) {
+        console.error("Error cargando clima:", error);
+      }
     }
 
-    getWeatherForecast();
+    if (!state.countryInfo) {
+      getWeatherForecast();
+    }
   }, []);
+
+  useEffect(() => {
+    const data = {
+      weatherInfo: state,
+      timestamp: Date.now(),
+    };
+    localStorage.setItem("weatherData", JSON.stringify(data));
+  }, [state]);
 
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
