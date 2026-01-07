@@ -16,7 +16,7 @@ export async function fetchWeatherData() {
 
   if (!data) {
     throw new Error(
-      "We could'nt connect to the weather service (API error). Please try again in a few moments",
+      "We could'nt connect to the weather service. Please try again in a few moments",
     );
   }
 

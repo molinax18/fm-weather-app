@@ -1,0 +1,11 @@
+.weather-manager-loading {
+  align-self: center;
+
+  display: inline-flex;
+  order: 0;
+  align-items: center;
+}
+
+.weather-manager-loading > span {
+  order: -1;
+}
