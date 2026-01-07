@@ -58,7 +58,7 @@ export interface CountryDay {
   condition: WeatherResponseCondition;
 }
 
-interface CountryHour {
+export interface CountryHour {
   time: string;
   temperature: {
     celsius: number;

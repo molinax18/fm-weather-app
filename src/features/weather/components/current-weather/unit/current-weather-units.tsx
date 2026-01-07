@@ -18,7 +18,7 @@ export default function CurrentWeatherUnits({ current }: Props) {
   } = useGlobalContext();
 
   return (
-    <div className={style["current-weather-units"]}>
+    <div className={`${style["current-weather-units"]} gap-md`}>
       <CurrentWeatherUnitCard
         unitType="Feels Like"
         value={formatTemperature(

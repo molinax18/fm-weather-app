@@ -1,0 +1,36 @@
+.hourly-forecast-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hourly-forecast-dropdown-menu {
+  border: 1px solid var(--neutral-600);
+  min-width: max-content;
+  width: 9rem;
+}
+
+.hourly-forecast-dropdown-button {
+  display: flex;
+  align-items: center;
+}
+
+.hourly-forecast-dropdown-item-button {
+  text-align: left;
+  width: 100%;
+}
+
+.hourly-forecast-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hourly-forecast-card-time {
+  display: flex;
+  align-items: center;
+}
+
+.hourly-forecast-card-image {
+  width: 30px;
+}

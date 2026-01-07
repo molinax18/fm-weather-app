@@ -17,6 +17,14 @@
     background-color: var(--blue-500);
   }
 
+  .button[data-theme="semi"] {
+    background-color: var(--neutral-600);
+  }
+
+  .button[data-theme="semi"]:hover {
+    background-color: var(--neutral-500);
+  }
+
   .button {
     border: none;
     border-radius: var(--border-r-sm);

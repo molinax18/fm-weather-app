@@ -19,7 +19,7 @@ export default function DailyForecastCard({ data, index }: Props) {
 
   return (
     <article
-      className={`card p-card-sm flex-col ${style["daily-forecast-card"]}`}
+      className={`card p-card-sm flex-col gap-md ${style["daily-forecast-card"]}`}
     >
       <h4>{getDayByIndex(data.date, index).format("ddd")}</h4>
       <img

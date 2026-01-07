@@ -1,1 +1,1 @@
-export type ButtonTheme = "dark" | "blue";
+export type ButtonTheme = "dark" | "blue" | "semi";

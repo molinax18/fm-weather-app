@@ -10,13 +10,13 @@ export default function UnitSection({ setting }: Props) {
   const { type, options, label } = setting;
 
   return (
-    <section className={`flex-col ${style["unit-section"]}`}>
+    <section className={`flex-col gap-xs ${style["unit-section"]}`}>
       <h4
         className={`subtitle text-preset-sm ${style["unit-section-subtitle"]}`}
       >
         {label}
       </h4>
-      <ul className={`flex-col ${style["unit-section-list"]}`}>
+      <ul className={`flex-col gap-xs ${style["unit-section-list"]}`}>
         {options.map((option) => (
           <UnitItem key={option.label} type={type} option={option} />
         ))}

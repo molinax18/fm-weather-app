@@ -7,7 +7,10 @@ interface Props extends ComponentPropsWithoutRef<"main"> {
 
 export default function Main({ children, className, ...props }: Props) {
   return (
-    <main {...props} className={`flex-col ${style.main} ${className ?? ""}`}>
+    <main
+      {...props}
+      className={`flex-col gap-lg ${style.main} ${className ?? ""}`}
+    >
       {children}
     </main>
   );

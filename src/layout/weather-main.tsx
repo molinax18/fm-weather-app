@@ -7,7 +7,7 @@ interface Props {
 
 export default function WeatherMainLayout({ children }: Props) {
   return (
-    <div className={`p-block-mobile flex-col ${style["weather-main"]}`}>
+    <div className={`p-block-mobile flex-col gap-lg ${style["weather-main"]}`}>
       {children}
     </div>
   );

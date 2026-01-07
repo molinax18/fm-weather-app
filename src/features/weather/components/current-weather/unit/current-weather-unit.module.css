@@ -1,11 +1,6 @@
 .current-weather-units {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--spacing-md);
-}
-
-.current-weather-unit-card {
-  gap: var(--spacing-md);
 }
 
 .current-weather-unit-card-value {

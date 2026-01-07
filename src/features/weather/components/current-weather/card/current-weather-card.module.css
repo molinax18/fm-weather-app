@@ -15,14 +15,9 @@
   height: 300px;
 }
 
-.current-weather-info {
-  gap: var(--spacing-xs);
-}
-
 .current-weather-temperature {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
 }
 
 .current-weather-image {

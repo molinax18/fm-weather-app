@@ -4,7 +4,6 @@ import type {
 } from "@/context/global/country-type";
 import CurrentWeatherCard from "./card/current-weather-card";
 import CurrentWeatherUnits from "./unit/current-weather-units";
-import style from "@/features/weather/components/weather.module.css";
 
 interface Props {
   location: CountryLocation;
@@ -13,7 +12,7 @@ interface Props {
 
 export default function CurrentWeather({ location, current }: Props) {
   return (
-    <section className={`flex-col ${style["current-weather"]}`}>
+    <section className="flex-col gap-lg">
       <CurrentWeatherCard data={location} />
       <CurrentWeatherUnits current={current} />
     </section>

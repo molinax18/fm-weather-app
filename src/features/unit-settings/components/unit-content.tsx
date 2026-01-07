@@ -14,7 +14,9 @@ export default function UnitContent() {
       : "imperial";
 
   return (
-    <div className={`card p-card-xs flex-col ${style["unit-content-wrapper"]}`}>
+    <div
+      className={`card p-card-xs flex-col gap-xs ${style["unit-content-wrapper"]}`}
+    >
       <div>
         <Button
           onClick={() => dispatch({ type: "TOGGLE_MEASUREMENT_SYSTEM" })}

@@ -21,6 +21,7 @@ export default function UnitItem({ option, type }: Props) {
       <Button
         data-selected={isSelectedOption}
         disabled={isSelectedOption}
+        className="gap-md"
         onClick={() =>
           dispatch({
             type: "HANDLE_MEASUREMENTS_CONFIG",

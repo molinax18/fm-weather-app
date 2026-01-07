@@ -5,11 +5,11 @@ import style from "./search.module.css";
 
 export default function Search() {
   return (
-    <form className={`flex-col ${style["search-wrapper"]}`}>
+    <form className={`flex-col gap-md ${style["search-wrapper"]}`}>
       <Input
         id="search"
         name="search"
-        className={`card p-card-xs ${style["search-input-container"]}`}
+        className={`card p-card-xs gap-md ${style["search-input-container"]}`}
       >
         <SearchIcon />
         <Input.Control

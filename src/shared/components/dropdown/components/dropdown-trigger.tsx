@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import Button from "@/shared/components/button/button";
 
-interface Props extends ComponentPropsWithoutRef<"button"> {
+interface Props extends ComponentPropsWithoutRef<typeof Button> {
   children: ReactNode;
 }
 

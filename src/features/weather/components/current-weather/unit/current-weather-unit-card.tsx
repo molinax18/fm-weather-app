@@ -7,9 +7,7 @@ interface Props {
 
 export default function CurrentWeatherUnitCard({ unitType, value }: Props) {
   return (
-    <article
-      className={`card p-card-sm flex-col ${style["current-weather-unit-card"]}`}
-    >
+    <article className="card p-card-sm flex-col gap-md">
       <h4 className="subtitle text-preset-sm">{unitType}</h4>
       <strong className={`title ${style["current-weather-unit-card-value"]}`}>
         {value}

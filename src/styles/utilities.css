@@ -27,4 +27,16 @@
   .text-preset-xl {
     font-size: var(--fs-xl);
   }
+
+  .gap-xs {
+    gap: var(--spacing-xs);
+  }
+
+  .gap-md {
+    gap: var(--spacing-md);
+  }
+
+  .gap-lg {
+    gap: var(--spacing-lg);
+  }
 }

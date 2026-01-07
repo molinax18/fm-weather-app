@@ -1,12 +1,10 @@
 .daily-forecast {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: var(--spacing-md);
 }
 
 .daily-forecast-card {
   align-items: center;
-  gap: var(--spacing-md);
 }
 
 .daily-forecast-image {
