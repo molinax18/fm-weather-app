@@ -1,3 +1,4 @@
+import type { WeatherResponseCondition } from "@/services/weather/weather.type";
 import type {
   Measurement,
   Precipitation,
@@ -5,7 +6,7 @@ import type {
   WindSpeed,
 } from "@/shared/types/units";
 
-interface CountryForecast {
+export interface CountryForecast {
   day: CountryDay[];
   hour: CountryHour[];
 }
@@ -13,7 +14,7 @@ interface CountryForecast {
 export interface CountryLocation {
   city: string;
   country: string;
-  condition: string;
+  condition: WeatherResponseCondition;
   temperature: {
     celsius: number;
     fahrenheit: number;
@@ -39,10 +40,11 @@ export interface CountryCurrent {
     in: number;
   };
   humidity: number;
-  condition: string;
+  condition: WeatherResponseCondition;
 }
 
-interface CountryDay {
+export interface CountryDay {
+  date: string;
   temperature: {
     max: {
       celsius: number;
@@ -53,7 +55,7 @@ interface CountryDay {
       fahrenheit: number;
     };
   };
-  condition: string;
+  condition: WeatherResponseCondition;
 }
 
 interface CountryHour {
@@ -62,7 +64,7 @@ interface CountryHour {
     celsius: number;
     fahrenheit: number;
   };
-  condition: string;
+  condition: WeatherResponseCondition;
 }
 
 export interface CountryConfig {

@@ -6,7 +6,7 @@ import {
   formatWind,
 } from "@/features/weather/weather-utils";
 import CurrentWeatherUnitCard from "./current-weather-unit-card";
-import style from "./current-weather.module.css";
+import style from "./current-weather-unit.module.css";
 
 interface Props {
   current: CountryCurrent;

@@ -21,7 +21,7 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
 
   return {
     current: {
-      condition: condition.text,
+      condition: condition,
       feelsLike: {
         celsius: feelslike_c,
         fahrenheit: feelslike_f,
@@ -43,7 +43,7 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
     location: {
       city: name,
       country: country,
-      condition: condition.text,
+      condition: condition,
       temperature: {
         celsius: temp_c,
         fahrenheit: temp_f,
@@ -52,7 +52,8 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
     },
     forecast: {
       day: forecastday.map((day) => ({
-        condition: day.day.condition.text,
+        date: day.date,
+        condition: day.day.condition,
         temperature: {
           max: {
             celsius: day.day.maxtemp_c,
@@ -67,7 +68,7 @@ export function mapToCountryWeather(data: WeatherResponse): CountryInfo {
       hour: forecastday.flatMap((day) =>
         day.hour.map((hour) => ({
           time: hour.time,
-          condition: hour.condition.text,
+          condition: hour.condition,
           temperature: {
             celsius: hour.temp_c,
             fahrenheit: hour.temp_f,

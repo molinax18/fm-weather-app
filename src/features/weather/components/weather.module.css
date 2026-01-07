@@ -1,0 +1,11 @@
+.current-weather {
+  gap: var(--spacing-lg);
+}
+
+.weather-control {
+  gap: var(--spacing-lg);
+}
+
+.weather-forecast {
+  gap: var(--spacing-md);
+}

@@ -2,9 +2,9 @@ import type {
   CountryCurrent,
   CountryLocation,
 } from "@/context/global/country-type";
-import CurrentWeatherCard from "./current-weather-card";
-import CurrentWeatherUnits from "./current-weather-units";
-import style from "./current-weather.module.css";
+import CurrentWeatherCard from "./card/current-weather-card";
+import CurrentWeatherUnits from "./unit/current-weather-units";
+import style from "@/features/weather/components/weather.module.css";
 
 interface Props {
   location: CountryLocation;

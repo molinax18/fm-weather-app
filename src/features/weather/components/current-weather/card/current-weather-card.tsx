@@ -1,9 +1,8 @@
 import type { CountryLocation } from "@/context/global/country-type";
-import type { Condition } from "@/shared/types/units";
 import { useGlobalContext } from "@/context/global/global.context";
-import { displayWeatherIcon, formatTemperature } from "../weather-utils";
+import { formatTemperature } from "@/features/weather/weather-utils";
 import dayjs from "dayjs";
-import style from "./current-weather.module.css";
+import style from "./current-weather-card.module.css";
 
 interface Props {
   data: CountryLocation;
@@ -25,8 +24,8 @@ export default function CurrentWeatherCard({ data }: Props) {
       </div>
       <div className={style["current-weather-temperature"]}>
         <img
-          src={displayWeatherIcon(condition as Condition)}
-          alt={condition}
+          src={condition.icon}
+          alt={condition.text}
           className={style["current-weather-image"]}
         />
         <strong className="title text-preset-xl">

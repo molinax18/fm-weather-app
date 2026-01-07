@@ -41,7 +41,7 @@ export interface WeatherResponseCurrent {
   gust_kph: number;
 }
 
-interface WeatherResponseCondition {
+export interface WeatherResponseCondition {
   text: string;
   icon: string;
   code: number;

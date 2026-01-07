@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
-import { useInputContext } from "../input.context";
+import { useInputContext } from "@/shared/components/input/input.context";
 
 export default function Control({
   ...props

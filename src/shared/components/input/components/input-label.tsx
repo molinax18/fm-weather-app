@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { useInputContext } from "../input.context";
+import { useInputContext } from "@/shared/components/input/input.context";
 
 interface Props extends ComponentPropsWithoutRef<"label"> {
   children: ReactNode;

@@ -1,10 +1,9 @@
 import type {
-  Condition,
   Precipitation,
   Temperature,
   WindSpeed,
 } from "@/shared/types/units";
-import { WEATHER_ICONS } from "./weather-icons.constant";
+import dayjs, { type Dayjs } from "dayjs";
 
 type TempUnit = { celsius: number; fahrenheit: number };
 type WindUnit = { kph: number; mph: number };
@@ -34,6 +33,6 @@ export const formatPrecipitation = (
     : `${Math.round(values.in)} in`;
 };
 
-export const displayWeatherIcon = (condition: Condition) => {
-  return WEATHER_ICONS[condition] || WEATHER_ICONS["Sunny"];
+export const getDayByIndex = (date: string, index: number): Dayjs => {
+  return dayjs(date).add(index, "day");
 };
