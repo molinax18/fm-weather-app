@@ -1,12 +1,13 @@
 export async function getApproximateUserLocation(): Promise<{
-  city: string | undefined;
-}> {
+  country: string;
+  city: string;
+} | null> {
   try {
-    const res = await fetch("https://ipapi.co/json/");
-    const { data } = await res.json();
+    const res = await fetch("https://free.freeipapi.com/api/json");
+    const { countryName, cityName } = await res.json();
 
-    return { city: `${data.city} ${data.country}` };
+    return { country: countryName, city: cityName };
   } catch (error) {
-    return { city: undefined };
+    return null;
   }
 }

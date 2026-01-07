@@ -45,14 +45,16 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
   useEffect(() => {
     async function getWeatherForecast() {
       try {
-        const { city } = await getApproximateUserLocation();
+        const location = await getApproximateUserLocation();
         const data = await getWeatherForecastData({
           ...DEFAULT_PARAMS,
-          q: city || DEFAULT_PARAMS.q,
+          q: location
+            ? `${location.country} ${location.city}`
+            : DEFAULT_PARAMS.q,
         });
         dispatch({ type: "SET_LOCATION", payload: data });
       } catch (error) {
-        console.error("Error cargando clima:", error);
+        console.log(error);
       }
     }
 
