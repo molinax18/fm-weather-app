@@ -9,9 +9,7 @@ interface Props {
 }
 
 export default function HourlyForecastCard({ data }: Props) {
-  const {
-    state: { countryConfig },
-  } = useGlobalContext();
+  const { countryConfig } = useGlobalContext();
   const { condition, temperature, time } = data;
 
   return (

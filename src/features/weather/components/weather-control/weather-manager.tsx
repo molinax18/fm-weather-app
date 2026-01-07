@@ -1,21 +1,25 @@
 import { useGlobalContext } from "@/context/global/global.context";
-import CurrentWeather from "@/features/weather/components/current-weather/current-weather";
-import WeatherForecast from "@/features/weather/components/weather-forecast/hourly/components/weather-forecast";
+import CurrentWeather from "@/features/weather/components/current-weather/components/current-weather";
+import WeatherForecast from "@/features/weather/components/weather-forecast/components/weather-forecast";
 
 export default function WeatherManager() {
-  const { state } = useGlobalContext();
+  const { countryInfo, isLoading, error } = useGlobalContext();
 
-  if (!state || !state.countryInfo) {
+  if (isLoading) {
     return <p>Cargando clima...</p>;
   }
 
-  return (
+  if (error) {
+    return <p>Ha ocurrido un error: {error.message}</p>;
+  }
+
+  if (countryInfo) {
     <div className="flex-col gap-lg">
       <CurrentWeather
-        location={state.countryInfo.location}
-        current={state.countryInfo.current}
+        location={countryInfo.location}
+        current={countryInfo.current}
       />
-      <WeatherForecast forecast={state.countryInfo.forecast} />
-    </div>
-  );
+      <WeatherForecast forecast={countryInfo.forecast} />
+    </div>;
+  }
 }

@@ -13,8 +13,8 @@ interface Props {
 }
 
 export default function UnitItem({ option, type }: Props) {
-  const { state, dispatch } = useGlobalContext();
-  const isSelectedOption = state.countryConfig[type] === option.value;
+  const { countryConfig, dispatch } = useGlobalContext();
+  const isSelectedOption = countryConfig[type] === option.value;
 
   return (
     <li className={style["unit-item"]}>
@@ -24,7 +24,7 @@ export default function UnitItem({ option, type }: Props) {
         className="gap-md"
         onClick={() =>
           dispatch({
-            type: "HANDLE_MEASUREMENTS_CONFIG",
+            type: "UPDATE_CONFIG",
             payload: { [type]: option.value },
           })
         }

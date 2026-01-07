@@ -12,9 +12,7 @@ interface Props {
 }
 
 export default function DailyForecastCard({ data, index }: Props) {
-  const {
-    state: { countryConfig },
-  } = useGlobalContext();
+  const { countryConfig } = useGlobalContext();
   const { condition, temperature } = data;
 
   return (

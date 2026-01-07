@@ -9,9 +9,7 @@ interface Props {
 }
 
 export default function CurrentWeatherCard({ data }: Props) {
-  const {
-    state: { countryConfig },
-  } = useGlobalContext();
+  const { countryConfig } = useGlobalContext();
   const { city, condition, country, time, temperature } = data;
 
   return (

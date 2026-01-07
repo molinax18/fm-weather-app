@@ -13,9 +13,7 @@ interface Props {
 }
 
 export default function CurrentWeatherUnits({ current }: Props) {
-  const {
-    state: { countryConfig },
-  } = useGlobalContext();
+  const { countryConfig } = useGlobalContext();
 
   return (
     <div className={`${style["current-weather-units"]} gap-md`}>

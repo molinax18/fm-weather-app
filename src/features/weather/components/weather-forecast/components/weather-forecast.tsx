@@ -1,6 +1,6 @@
 import type { CountryForecast } from "@/context/global/country-type";
-import DailyForecast from "@/features/weather/components/weather-forecast/daily/daily-forecast";
-import HourlyForecast from "./hourly-forecast";
+import DailyForecast from "@/features/weather/components/weather-forecast/components/daily/daily-forecast";
+import HourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast";
 
 interface Props {
   forecast: CountryForecast;

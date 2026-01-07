@@ -11,6 +11,7 @@
     "git-formatted": "npx prettier . --write && git add ."
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.16",
     "dayjs": "^1.11.19",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

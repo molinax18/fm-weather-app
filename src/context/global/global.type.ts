@@ -1,29 +1,20 @@
 import type { ActionDispatch, ReactNode } from "react";
 import type { CountryConfig, CountryInfo } from "./country-type";
-
-export interface GlobalState {
-  countryConfig: CountryConfig;
-  countryInfo: CountryInfo | null;
-}
-
 export interface GlobalProviderProps {
   children: ReactNode;
 }
 
 export interface GlobalContextProps {
-  state: GlobalState;
+  countryConfig: CountryConfig;
   dispatch: ActionDispatch<[action: GlobalActionType]>;
+  countryInfo: CountryInfo | null;
+  isLoading: boolean;
+  isError: boolean;
+  error: Error | null;
+  refetch: () => void;
 }
 
 export type GlobalActionType =
-  | {
-      type: "TOGGLE_MEASUREMENT_SYSTEM";
-    }
-  | {
-      type: "HANDLE_MEASUREMENTS_CONFIG";
-      payload: Partial<Omit<CountryConfig, "measurementSystem">>;
-    }
-  | {
-      type: "SET_LOCATION";
-      payload: CountryInfo | null;
-    };
+  | { type: "UPDATE_CONFIG"; payload: Partial<CountryConfig> }
+  | { type: "RESET_CONFIG" }
+  | { type: "SET_MEASUREMENT_SYSTEM"; payload: "imperial" | "metric" };

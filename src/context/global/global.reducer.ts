@@ -1,51 +1,43 @@
-import type { GlobalState, GlobalActionType } from "./global.type";
+import type { CountryConfig } from "./country-type";
+import type { GlobalActionType } from "./global.type";
 
-export function globalContextReducer(
-  state: GlobalState,
+export const INITIAL_STATE: CountryConfig = {
+  measurementSystem: "imperial",
+  temperature: "fahrenheit",
+  windSpeed: "mph",
+  precipitation: "in",
+};
+
+export const globalContextReducer = (
+  state: CountryConfig,
   action: GlobalActionType,
-): GlobalState {
+): CountryConfig => {
   switch (action.type) {
-    case "TOGGLE_MEASUREMENT_SYSTEM":
-      if (state.countryConfig.measurementSystem === "imperial") {
-        return {
-          ...state,
-          countryConfig: {
+    case "UPDATE_CONFIG":
+      return {
+        ...state,
+        ...action.payload,
+      };
+
+    case "SET_MEASUREMENT_SYSTEM":
+      return action.payload === "metric"
+        ? {
             measurementSystem: "metric",
             temperature: "celsius",
             windSpeed: "kph",
             precipitation: "mm",
-          },
-        };
-      }
+          }
+        : {
+            measurementSystem: "imperial",
+            temperature: "fahrenheit",
+            windSpeed: "mph",
+            precipitation: "in",
+          };
 
-      return {
-        ...state,
-        countryConfig: {
-          measurementSystem: "imperial",
-          temperature: "fahrenheit",
-          windSpeed: "mph",
-          precipitation: "in",
-        },
-      };
-
-    case "HANDLE_MEASUREMENTS_CONFIG":
-      return {
-        ...state,
-        countryConfig: {
-          ...state.countryConfig,
-          ...action.payload,
-        },
-      };
-
-    case "SET_LOCATION":
-      const data = action.payload;
-
-      return {
-        ...state,
-        countryInfo: data,
-      };
+    case "RESET_CONFIG":
+      return INITIAL_STATE;
 
     default:
       return state;
   }
-}
+};

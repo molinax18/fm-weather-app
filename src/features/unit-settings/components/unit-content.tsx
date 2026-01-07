@@ -7,11 +7,9 @@ import UnitSection from "./unit-section";
 import style from "./unit.module.css";
 
 export default function UnitContent() {
-  const { state, dispatch } = useGlobalContext();
+  const { countryConfig, dispatch } = useGlobalContext();
   const nextMeasurementSystem: Measurement =
-    state.countryConfig.measurementSystem === "imperial"
-      ? "metric"
-      : "imperial";
+    countryConfig.measurementSystem === "imperial" ? "metric" : "imperial";
 
   return (
     <div
@@ -19,7 +17,12 @@ export default function UnitContent() {
     >
       <div>
         <Button
-          onClick={() => dispatch({ type: "TOGGLE_MEASUREMENT_SYSTEM" })}
+          onClick={() =>
+            dispatch({
+              type: "SET_MEASUREMENT_SYSTEM",
+              payload: nextMeasurementSystem,
+            })
+          }
           className={style["unit-content-button"]}
         >
           Switch to {toCapitalize(nextMeasurementSystem)}
