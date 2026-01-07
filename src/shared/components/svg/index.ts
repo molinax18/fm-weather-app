@@ -5,3 +5,4 @@ export * from "./checkmark-icon";
 export * from "./search-icon";
 export * from "./loading-icon";
 export * from "./error-icon";
+export * from "./retry-icon";

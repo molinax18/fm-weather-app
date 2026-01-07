@@ -6,7 +6,7 @@ import Hero from "@/sections/hero/hero";
 import Main from "@/sections/main/main";
 import Button from "./shared/components/button/button";
 import ErrorMessage from "./shared/components/states/error-message";
-import { RetryIcon } from "./shared/components/svg/retry-icon";
+import { RetryIcon } from "./shared/components/svg";
 
 export default function App() {
   const { error, refetch } = useGlobalContext();
