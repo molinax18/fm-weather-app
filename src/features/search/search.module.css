@@ -17,3 +17,12 @@
   color: var(--neutral-300);
   font-weight: 500;
 }
+
+.search-menu {
+  left: 0;
+}
+
+.search-content-item button {
+  width: 100%;
+  text-align: left;
+}

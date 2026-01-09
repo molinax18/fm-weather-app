@@ -6,17 +6,28 @@ import Menu from "./dropdown-menu";
 import style from "./dropdown.module.css";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
+  isOpenByParent?: boolean;
+  onToggle?: () => void;
   children: ReactNode;
 }
 
-export default function Dropdown({ ...props }: Props) {
+export default function Dropdown({
+  isOpenByParent,
+  onToggle,
+  children,
+  ...props
+}: Props) {
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { isOpen, toggleDropdown } = useDropdown(dropdownRef);
+  const { isOpen, toggleDropdown } = useDropdown(
+    dropdownRef,
+    isOpenByParent,
+    onToggle,
+  );
 
   return (
     <DropdownContext.Provider value={{ isOpen, toggleDropdown }}>
       <div {...props} ref={dropdownRef} className={style.dropdown}>
-        {props.children}
+        {children}
       </div>
     </DropdownContext.Provider>
   );

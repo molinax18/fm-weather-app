@@ -1,22 +1,40 @@
-import { useEffect, useState, type RefObject } from "react";
+import { useEffect, useState } from "react";
 
-export function useDropdown(dropdownRef: RefObject<HTMLDivElement | null>) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+export function useDropdown(
+  ref: React.RefObject<HTMLElement | null>,
+  controlledIsOpen?: boolean,
+  onToggle?: () => void,
+) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isControlled = typeof controlledIsOpen !== "undefined";
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+
+  const toggle = () => {
+    isControlled ? onToggle?.() : setInternalIsOpen(!internalIsOpen);
+  };
+
+  const close = () => {
+    if (isControlled) {
+      if (controlledIsOpen === true) onToggle?.();
+    } else {
+      setInternalIsOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        isOpen &&
+        ref.current &&
+        !ref.current.contains(event.target as Node)
       ) {
-        setIsOpen(false);
+        close();
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [dropdownRef]);
+  }, [isOpen, ref, onToggle]);
 
-  return { isOpen, toggleDropdown, setIsOpen };
+  return { isOpen, toggleDropdown: toggle };
 }
