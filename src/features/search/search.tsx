@@ -2,8 +2,8 @@ import { SearchIcon } from "@/shared/components/svg";
 import { useQuery } from "@tanstack/react-query";
 import { getCountryById } from "@/services/weather/weather-search.service";
 import { API_KEY } from "@/services/weather/weather.constant";
-import { useState, type FormEvent } from "react";
-import type { WeatherSearchResponse } from "@/services/weather/weather.type";
+import { useEffect, useState, type FormEvent } from "react";
+import { useGlobalContext } from "@/context/global/global.context";
 import Input from "@/shared/components/input/components/input-root";
 import Button from "@/shared/components/button/button";
 import Dropdown from "@/shared/components/dropdown/components/dropdown";
@@ -11,6 +11,7 @@ import SearchContent from "./search-content";
 import style from "./search.module.css";
 
 export default function Search() {
+  const { countryInfo } = useGlobalContext();
   const [search, setSearch] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -30,6 +31,10 @@ export default function Search() {
       setSearch("");
     }
   };
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [countryInfo]);
 
   return (
     <form
@@ -64,7 +69,7 @@ export default function Search() {
         onToggle={() => setIsMenuOpen(!isMenuOpen)}
       >
         <Dropdown.Menu className={style["search-menu"]}>
-          {data && <SearchContent data={data as WeatherSearchResponse[]} />}
+          {data && <SearchContent data={data} />}
         </Dropdown.Menu>
       </Dropdown>
     </form>
