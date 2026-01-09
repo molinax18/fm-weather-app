@@ -11,8 +11,8 @@ export default function DailyForecast({ data }: Props) {
     <section className="flex-col gap-md">
       <h3 className="title">Daily forecast</h3>
       <div className={`gap-md ${style["daily-forecast"]}`}>
-        {data.map((day, index) => (
-          <DailyForecastCard key={index} data={day} index={index} />
+        {data.map((day) => (
+          <DailyForecastCard key={day.date} data={day} />
         ))}
       </div>
     </section>

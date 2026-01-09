@@ -3,7 +3,6 @@ import type {
   Temperature,
   WindSpeed,
 } from "@/shared/types/units";
-import dayjs, { type Dayjs } from "dayjs";
 
 type TempUnit = { celsius: number; fahrenheit: number };
 type WindUnit = { kph: number; mph: number };
@@ -31,8 +30,4 @@ export const formatPrecipitation = (
   return unit === "mm"
     ? `${Math.round(values.mm)} mm`
     : `${Math.round(values.in)} in`;
-};
-
-export const getDayByIndex = (date: string, index: number): Dayjs => {
-  return dayjs(date).add(index, "day");
 };
