@@ -28,8 +28,8 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
     queryKey: ["weatherForecast"],
     queryFn: fetchWeatherData,
     staleTime: 1000 * 60 * 30,
-    retry: 1,
     refetchOnWindowFocus: false,
+    throwOnError: false,
   });
 
   const contextValue: GlobalContextProps = {

@@ -15,6 +15,7 @@ export default function Search() {
         <Input.Control
           placeholder="Search for a place..."
           className={`${style["search-input"]}`}
+          name="search"
         />
       </Input>
 

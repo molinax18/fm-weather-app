@@ -3,18 +3,17 @@ import { BASE_URL } from "./weather.constant";
 import type { WeatherApiParams, WeatherResponse } from "./weather.type";
 
 export async function getWeatherForecastData(params: WeatherApiParams) {
-  try {
-    const queryString = new URLSearchParams(
-      Object.entries(params).map(([key, value]) => [key, String(value)]),
-    ).toString();
+  const queryString = new URLSearchParams(
+    Object.entries(params).map(([key, value]) => [key, String(value)]),
+  ).toString();
+  const response = await fetch(`${BASE_URL}/forecast.json?${queryString}`);
 
-    const response = await fetch(`${BASE_URL}/forecast.json?${queryString}`);
-    if (!response.ok) throw new Error("Error en la petición");
-
-    const data: WeatherResponse = await response.json();
-
-    return mapToCountryWeather(data);
-  } catch (error) {
-    return null;
+  if (!response.ok) {
+    throw new Error(
+      "We could'nt connect to the weather service. Please try again in a few moments",
+    );
   }
+
+  const data: WeatherResponse = await response.json();
+  return mapToCountryWeather(data);
 }

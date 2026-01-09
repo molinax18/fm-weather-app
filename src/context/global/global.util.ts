@@ -14,11 +14,5 @@ export async function fetchWeatherData() {
     q: query,
   });
 
-  if (!data) {
-    throw new Error(
-      "We could'nt connect to the weather service. Please try again in a few moments",
-    );
-  }
-
   return data;
 }
