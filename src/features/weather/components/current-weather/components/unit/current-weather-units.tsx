@@ -1,4 +1,4 @@
-import type { CountryCurrent } from "@/context/global/country-type";
+import type { CountryCurrent } from "@/context/global/country.type";
 import { useGlobalContext } from "@/context/global/global.context";
 import {
   formatPrecipitation,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { CountryForecast } from "@/context/global/country-type";
+import type { CountryForecast } from "@/context/global/country.type";
 import dayjs from "dayjs";
 
 export default function useHourlyForecast(forecast: CountryForecast) {

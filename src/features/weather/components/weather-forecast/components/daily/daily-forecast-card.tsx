@@ -1,4 +1,4 @@
-import type { CountryDay } from "@/context/global/country-type";
+import type { CountryDay } from "@/context/global/country.type";
 import { formatTemperature } from "@/features/weather/weather-utils";
 import { useGlobalContext } from "@/context/global/global.context";
 import style from "./daily-forecast.module.css";

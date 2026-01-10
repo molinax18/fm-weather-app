@@ -3,7 +3,7 @@ import type {
   Temperature,
   WindSpeed,
 } from "@/shared/types/units";
-import type { CountryConfig } from "@/context/global/country-type";
+import type { CountryConfig } from "@/context/global/country.type";
 
 export type UnitKeys = keyof Omit<CountryConfig, "measurementSystem">;
 

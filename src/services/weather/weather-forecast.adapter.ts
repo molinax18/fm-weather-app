@@ -1,4 +1,4 @@
-import type { CountryInfo } from "@/context/global/country-type";
+import type { CountryInfo } from "@/context/global/country.type";
 import type { WeatherResponse } from "./weather.type";
 
 export function mapToCountryWeather(data: WeatherResponse): CountryInfo {

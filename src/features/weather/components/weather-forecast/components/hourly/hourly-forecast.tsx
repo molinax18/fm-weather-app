@@ -1,4 +1,4 @@
-import type { CountryForecast } from "@/context/global/country-type";
+import type { CountryForecast } from "@/context/global/country.type";
 import HourlyForecastDropdown from "./hourly-forecast-dropdown";
 import HourlyForecastCard from "./hourly-forecast-card";
 import useHourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast.hook";

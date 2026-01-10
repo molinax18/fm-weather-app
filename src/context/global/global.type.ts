@@ -1,5 +1,5 @@
 import type { ActionDispatch, ReactNode } from "react";
-import type { CountryConfig, CountryInfo } from "./country-type";
+import type { CountryConfig, CountryInfo } from "./country.type";
 export interface GlobalProviderProps {
   children: ReactNode;
 }

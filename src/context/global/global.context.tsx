@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { globalContextReducer } from "./global.reducer";
+import { globalContextReducer } from "./global-config.reducer";
 import type { GlobalContextProps, GlobalProviderProps } from "./global.type";
-import type { CountryConfig } from "./country-type";
+import type { CountryConfig } from "./country.type";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWeatherData } from "./global.util";
 
