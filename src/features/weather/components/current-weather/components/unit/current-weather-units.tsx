@@ -4,7 +4,7 @@ import {
   formatPrecipitation,
   formatTemperature,
   formatWind,
-} from "@/features/weather/weather-utils";
+} from "@/features/weather/weather.util";
 import CurrentWeatherUnitCard from "./current-weather-unit-card";
 import style from "./current-weather-unit.module.css";
 

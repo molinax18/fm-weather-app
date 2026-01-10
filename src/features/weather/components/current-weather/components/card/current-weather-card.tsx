@@ -1,6 +1,6 @@
 import type { CountryLocation } from "@/context/global/country.type";
 import { useGlobalContext } from "@/context/global/global.context";
-import { formatTemperature } from "@/features/weather/weather-utils";
+import { formatTemperature } from "@/features/weather/weather.util";
 import dayjs from "dayjs";
 import style from "./current-weather-card.module.css";
 
