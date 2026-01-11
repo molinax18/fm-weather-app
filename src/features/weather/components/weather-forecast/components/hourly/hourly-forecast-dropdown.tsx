@@ -3,6 +3,7 @@ import Dropdown from "@/shared/components/dropdown/components/dropdown";
 import Button from "@/shared/components/button/button";
 import dayjs from "dayjs";
 import style from "./hourly-forecast.module.css";
+import { useState } from "react";
 
 interface Props {
   currentDate: string;
@@ -15,8 +16,11 @@ export default function HourlyForecastDropdown({
   currentDate,
   onClick,
 }: Props) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
+
   return (
-    <Dropdown>
+    <Dropdown isOpenByParent={isDropdownOpen} onToggle={toggleDropdown}>
       <Dropdown.Trigger
         className={`gap-md ${style["hourly-forecast-dropdown-button"]}`}
         buttonTheme="semi"
@@ -33,7 +37,10 @@ export default function HourlyForecastDropdown({
             return (
               <li key={day}>
                 <Button
-                  onClick={() => onClick(day)}
+                  onClick={() => {
+                    onClick(day);
+                    toggleDropdown();
+                  }}
                   className={style["hourly-forecast-dropdown-item-button"]}
                 >
                   {day}

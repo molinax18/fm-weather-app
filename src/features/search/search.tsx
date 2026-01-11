@@ -2,8 +2,7 @@ import { SearchIcon } from "@/shared/components/svg";
 import { useQuery } from "@tanstack/react-query";
 import { getCountryById } from "@/services/weather/weather-search.service";
 import { API_KEY } from "@/services/weather/weather.constant";
-import { useEffect, useState, type FormEvent } from "react";
-import { useGlobalContext } from "@/context/global/global.context";
+import { useState, type FormEvent } from "react";
 import Input from "@/shared/components/input/components/input-root";
 import Button from "@/shared/components/button/button";
 import Dropdown from "@/shared/components/dropdown/components/dropdown";
@@ -11,9 +10,9 @@ import SearchContent from "./search-content";
 import style from "./search.module.css";
 
 export default function Search() {
-  const { countryInfo } = useGlobalContext();
   const [search, setSearch] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
   const { data, refetch, isFetching } = useQuery({
     queryKey: ["weatherSearch"],
@@ -26,15 +25,11 @@ export default function Search() {
     if (search.trim()) {
       const result = await refetch();
       if (result.data) {
-        setIsMenuOpen(true);
+        setIsDropdownOpen(true);
       }
       setSearch("");
     }
   };
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [countryInfo]);
 
   return (
     <form
@@ -64,10 +59,7 @@ export default function Search() {
         Search
       </Button>
 
-      <Dropdown
-        isOpenByParent={isMenuOpen}
-        onToggle={() => setIsMenuOpen(!isMenuOpen)}
-      >
+      <Dropdown isOpenByParent={isDropdownOpen} onToggle={toggleDropdown}>
         <Dropdown.Menu className={style["search-menu"]}>
           {data && <SearchContent data={data} />}
         </Dropdown.Menu>

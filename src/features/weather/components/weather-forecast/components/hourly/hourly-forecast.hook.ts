@@ -4,10 +4,11 @@ import dayjs from "dayjs";
 
 export default function useHourlyForecast(forecast: CountryForecast) {
   const { day, hour } = forecast;
-  const [currentDate, setCurrentDay] = useState(day[0].date);
+  const [currentIndex, setSelectedIndex] = useState(0);
+  const currentDate = day[currentIndex].date;
 
   const handleCurrentDay = (index: number) => {
-    setCurrentDay(day[index].date);
+    setSelectedIndex(index);
   };
 
   const availableDays = day.map((day, index) => ({

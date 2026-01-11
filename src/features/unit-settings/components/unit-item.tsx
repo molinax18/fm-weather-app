@@ -3,6 +3,7 @@ import type {
   UnitSettingOption,
 } from "@/features/unit-settings/unit.type";
 import { useGlobalContext } from "@/context/global/global.context";
+import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import CheckmarkIcon from "@/shared/components/svg/checkmark-icon";
 import Button from "@/shared/components/button/button";
 import style from "./unit.module.css";
@@ -14,6 +15,7 @@ interface Props {
 
 export default function UnitItem({ option, type }: Props) {
   const { countryConfig, dispatch } = useGlobalContext();
+  const { toggleDropdown } = useDropdownContext();
   const isSelectedOption = countryConfig[type] === option.value;
 
   return (
@@ -21,12 +23,13 @@ export default function UnitItem({ option, type }: Props) {
       <Button
         data-selected={isSelectedOption}
         disabled={isSelectedOption}
-        onClick={() =>
+        onClick={() => {
           dispatch({
             type: "UPDATE_CONFIG",
             payload: { [type]: option.value },
-          })
-        }
+          });
+          toggleDropdown();
+        }}
       >
         {option.label}
         {isSelectedOption && <CheckmarkIcon />}

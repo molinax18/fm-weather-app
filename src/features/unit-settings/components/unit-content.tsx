@@ -1,6 +1,7 @@
 import { UNIT_SETTINGS } from "@/features/unit-settings/unit.constant";
 import { useGlobalContext } from "@/context/global/global.context";
 import { toCapitalize } from "@/shared/utils/capitalize";
+import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import type { Measurement } from "@/shared/types/units";
 import Button from "@/shared/components/button/button";
 import UnitSection from "./unit-section";
@@ -8,6 +9,7 @@ import style from "./unit.module.css";
 
 export default function UnitContent() {
   const { countryConfig, dispatch } = useGlobalContext();
+  const { toggleDropdown } = useDropdownContext();
   const nextMeasurementSystem: Measurement =
     countryConfig.measurementSystem === "imperial" ? "metric" : "imperial";
 
@@ -17,12 +19,13 @@ export default function UnitContent() {
     >
       <div>
         <Button
-          onClick={() =>
+          onClick={() => {
             dispatch({
               type: "SET_MEASUREMENT_SYSTEM",
               payload: nextMeasurementSystem,
-            })
-          }
+            });
+            toggleDropdown();
+          }}
           className={style["unit-content-button"]}
         >
           Switch to {toCapitalize(nextMeasurementSystem)}
