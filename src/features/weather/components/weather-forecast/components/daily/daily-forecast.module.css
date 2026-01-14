@@ -1,4 +1,8 @@
 .daily-forecast {
+  grid-area: daily-forecast;
+}
+
+.daily-forecast-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }

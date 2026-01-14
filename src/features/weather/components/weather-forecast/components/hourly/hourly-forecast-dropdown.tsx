@@ -1,8 +1,8 @@
 import { DropdownIcon } from "@/shared/components/svg";
 import Dropdown from "@/shared/components/dropdown/components/dropdown";
+import HourlyForecastDropdownContent from "./hourly-forecast-dropdown-content";
 import dayjs from "dayjs";
 import style from "./hourly-forecast.module.css";
-import HourlyForecastDropdownContent from "./hourly-forecast-dropdown-content";
 
 interface Props {
   currentDate: string;

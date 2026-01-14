@@ -13,7 +13,9 @@ export default function HourlyForecast({ data }: Props) {
     useHourlyForecast(data);
 
   return (
-    <section className="flex-col gap-md card p-card-sm">
+    <section
+      className={`flex-col gap-md card p-card-sm ${style["hourly-forecast"]}`}
+    >
       <header className={`gap-md ${style["hourly-forecast-header"]}`}>
         <h3 className="title">Hourly forecast</h3>
         <HourlyForecastDropdown
@@ -29,7 +31,7 @@ export default function HourlyForecast({ data }: Props) {
           currentDate={currentDate}
         />
       </header>
-      <div className="flex-col gap-xs">
+      <div className="flex-col gap-md">
         {hoursByDate.map((hour) => (
           <HourlyForecastCard key={hour.time} data={hour} />
         ))}

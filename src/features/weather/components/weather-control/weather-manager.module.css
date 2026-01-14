@@ -9,3 +9,13 @@
 .weather-manager-loading > span {
   order: -1;
 }
+
+@media (width >= 1024px) {
+  .weather-forecast-container {
+    display: grid;
+    grid-template-areas:
+      "current-weather current-weather hourly-forecast"
+      "current-weather current-weather hourly-forecast"
+      "daily-forecast daily-forecast hourly-forecast";
+  }
+}

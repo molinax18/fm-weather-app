@@ -29,7 +29,7 @@ export default function SearchContent({ data }: Props) {
   }, [isFetchedAfterMount]);
 
   return (
-    <ul className="flex-col card p-card-xs">
+    <ul className={`flex-col card p-card-xs ${style["search-content"]}`}>
       {data.map(({ country, name }) => {
         const locationQuery = `${name}, ${country}`;
 

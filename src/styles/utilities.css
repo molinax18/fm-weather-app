@@ -4,10 +4,6 @@
     flex-direction: column;
   }
 
-  .p-block-mobile {
-    padding-block: 0.8em var(--spacing-md);
-  }
-
   .p-card-sm {
     padding: 0.8em 0.9em;
   }
@@ -26,6 +22,10 @@
 
   .text-preset-xl {
     font-size: var(--fs-xl);
+  }
+
+  .text-preset-2xl {
+    font-size: var(--fs-2xl);
   }
 
   .gap-xs {

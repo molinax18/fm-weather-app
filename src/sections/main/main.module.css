@@ -1,2 +1,5 @@
-.main {
+@media (width >= 1024px) {
+  .main {
+    gap: var(--spacing-3xl);
+  }
 }

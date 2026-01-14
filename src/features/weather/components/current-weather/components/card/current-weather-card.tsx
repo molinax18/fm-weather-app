@@ -13,9 +13,9 @@ export default function CurrentWeatherCard({ data }: Props) {
   const { city, condition, country, time, temperature } = data;
 
   return (
-    <article className={`p-card-sm ${style["current-weather-card"]}`}>
-      <div className="flex-col gap-xs">
-        <h2 className="title">
+    <article className={`flex-col p-card-sm ${style["current-weather-card"]}`}>
+      <div className={`flex-col gap-xs ${style["current-weather-country"]}`}>
+        <h2 className="title text-preset-lg">
           {city}, {country}
         </h2>
         <span>{dayjs(time).format("dddd, MMM D, YYYY")}</span>
@@ -26,7 +26,7 @@ export default function CurrentWeatherCard({ data }: Props) {
           alt={condition.text}
           className={style["current-weather-image"]}
         />
-        <strong className="title text-preset-xl">
+        <strong className="title text-preset-2xl">
           {formatTemperature(temperature, countryConfig.temperature)}
         </strong>
       </div>

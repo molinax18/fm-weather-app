@@ -1,3 +1,12 @@
 .hero-wrapper {
   text-align: center;
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--hero-max-width-mobile);
+}
+
+@media (width >= 1024px) {
+  .hero-wrapper {
+    max-width: var(--hero-max-width-desktop);
+  }
 }

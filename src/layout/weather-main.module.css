@@ -1,5 +1,12 @@
 .weather-main {
   margin-inline: auto;
-  width: 90%;
-  max-width: 1400px;
+  max-width: 1300px;
+  padding: 0.8em var(--spacing-md);
+  width: 98%;
+}
+
+@media (width >= 1024px) {
+  .weather-main {
+    padding-block: var(--spacing-lg);
+  }
 }

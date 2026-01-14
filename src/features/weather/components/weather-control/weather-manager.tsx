@@ -1,6 +1,7 @@
 import { useGlobalContext } from "@/context/global/global.context";
 import CurrentWeather from "@/features/weather/components/current-weather/components/current-weather";
-import WeatherForecast from "@/features/weather/components/weather-forecast/components/weather-forecast";
+import DailyForecast from "../weather-forecast/components/daily/daily-forecast";
+import HourlyForecast from "../weather-forecast/components/hourly/hourly-forecast";
 import Loader from "@/shared/components/states/loader";
 import style from "./weather-manager.module.css";
 
@@ -18,12 +19,13 @@ export default function WeatherManager() {
   if (!countryInfo) return null;
 
   return (
-    <div className="flex-col gap-lg">
+    <div className={`flex-col gap-lg ${style["weather-forecast-container"]}`}>
       <CurrentWeather
         location={countryInfo.location}
         current={countryInfo.current}
       />
-      <WeatherForecast forecast={countryInfo.forecast} />
+      <DailyForecast data={countryInfo.forecast.day} />
+      <HourlyForecast data={countryInfo.forecast} />
     </div>
   );
 }
