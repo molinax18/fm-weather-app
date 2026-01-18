@@ -1,7 +1,6 @@
+import { getCountryByName } from "@/services/weather/open-meteo/search/country-by-name";
 import { SearchIcon } from "@/shared/components/svg";
 import { useQuery } from "@tanstack/react-query";
-import { getCountryById } from "@/services/weather/weather-search.service";
-import { API_KEY } from "@/services/weather/weather.constant";
 import { useState, type FormEvent } from "react";
 import Input from "@/shared/components/input/components/input-root";
 import Button from "@/shared/components/button/button";
@@ -16,7 +15,7 @@ export default function Search() {
 
   const { data, refetch, isFetching } = useQuery({
     queryKey: ["weatherSearch"],
-    queryFn: () => getCountryById({ key: API_KEY, q: search }),
+    queryFn: () => getCountryByName(search),
     enabled: false,
   });
 
@@ -49,7 +48,6 @@ export default function Search() {
           onChange={(event) => setSearch(event.currentTarget.value)}
         />
       </Input>
-
       <Button
         type="submit"
         className="p-card-sm"
@@ -61,7 +59,7 @@ export default function Search() {
 
       <Dropdown isOpenByParent={isDropdownOpen} onToggle={toggleDropdown}>
         <Dropdown.Menu className={style["search-menu"]}>
-          {data && <SearchContent data={data} />}
+          {data && <SearchContent data={data.results} />}
         </Dropdown.Menu>
       </Dropdown>
     </form>

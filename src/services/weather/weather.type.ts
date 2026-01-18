@@ -140,13 +140,3 @@ export type WeatherApiParams = {
   hour?: number;
   format?: "json" | "xml";
 };
-
-export type WeatherSearchResponse = {
-  id: number;
-  name: string;
-  region: string;
-  country: string;
-  lat: -34.59;
-  lon: -58.67;
-  url: number;
-};
