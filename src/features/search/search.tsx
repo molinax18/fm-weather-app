@@ -41,6 +41,7 @@ export default function Search() {
         className={`card p-card-xs gap-md ${style["search-input-container"]}`}
       >
         <SearchIcon />
+
         <Input.Control
           placeholder="Search for a place..."
           className={`${style["search-input"]}`}
@@ -48,6 +49,7 @@ export default function Search() {
           onChange={(event) => setSearch(event.currentTarget.value)}
         />
       </Input>
+
       <Button
         type="submit"
         className="p-card-sm"

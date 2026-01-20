@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { globalContextReducer } from "./global-config.reducer";
-import type { GlobalContextProps, GlobalProviderProps } from "./global.type";
-import type { CountryConfig } from "./country.type";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWeatherData } from "./global.util";
+import type { GlobalContextProps, GlobalProviderProps } from "./global.type";
+import type { CountryConfig } from "./country.type";
 
 const INITIAL_CONFIG_STATE: CountryConfig = {
   measurementSystem: "imperial",

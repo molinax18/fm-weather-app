@@ -28,6 +28,7 @@ export default function SearchContent({ data }: Props) {
                     countryCode={country_code.toLowerCase()}
                     height={20}
                   />
+
                   <span>{name}</span>
                 </div>
 

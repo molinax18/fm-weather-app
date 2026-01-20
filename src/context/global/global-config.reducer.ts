@@ -1,4 +1,4 @@
-import type { CountryConfig } from "./country-type";
+import type { CountryConfig } from "./country.type";
 import type { GlobalActionType } from "./global.type";
 
 export const INITIAL_STATE: CountryConfig = {
