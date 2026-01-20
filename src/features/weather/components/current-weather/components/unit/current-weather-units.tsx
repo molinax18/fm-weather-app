@@ -1,43 +1,29 @@
-import type { CountryCurrent } from "@/context/global/country.type";
-import { useGlobalContext } from "@/context/global/global.context";
-import {
-  formatPrecipitation,
-  formatTemperature,
-  formatWind,
-} from "@/features/weather/weather.util";
+import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import type { HourlyForecast } from "@/context/global/open-meteo/weather.type";
 import CurrentWeatherUnitCard from "./current-weather-unit-card";
 import style from "./current-weather-unit.module.css";
 
 interface Props {
-  current: CountryCurrent;
+  info: HourlyForecast;
 }
 
-export default function CurrentWeatherUnits({ current }: Props) {
-  const { countryConfig } = useGlobalContext();
+export default function CurrentWeatherUnits({ info }: Props) {
+  const { weatherConfig } = useGlobalContext();
+  const { apparentTemperature, precipitation, windSpeed } = info;
 
   return (
     <div className={`${style["current-weather-units"]} gap-md`}>
       <CurrentWeatherUnitCard
         unitType="Feels Like"
-        value={formatTemperature(
-          current.temperature,
-          countryConfig.temperature,
-        )}
-      />
-      <CurrentWeatherUnitCard
-        unitType="Humidity"
-        value={`${current.humidity}%`}
+        value={`${apparentTemperature[weatherConfig.temperature]}°`}
       />
       <CurrentWeatherUnitCard
         unitType="Wind"
-        value={formatWind(current.wind, countryConfig.windSpeed)}
+        value={`${windSpeed[weatherConfig.windSpeed]} ${weatherConfig.windSpeed}`}
       />
       <CurrentWeatherUnitCard
         unitType="Precipitation"
-        value={formatPrecipitation(
-          current.precipitation,
-          countryConfig.precipitation,
-        )}
+        value={`${precipitation[weatherConfig.precipitation]} ${weatherConfig.precipitation}`}
       />
     </div>
   );

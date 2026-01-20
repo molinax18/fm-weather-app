@@ -13,7 +13,7 @@ export const UNIT_SETTINGS: UnitSetting[] = [
     label: "Wind Speed",
     type: "windSpeed",
     options: [
-      { label: "km/h", value: "kph" },
+      { label: "km/h", value: "kmh" },
       { label: "mph", value: "mph" },
     ],
   },
@@ -22,7 +22,7 @@ export const UNIT_SETTINGS: UnitSetting[] = [
     type: "precipitation",
     options: [
       { label: "Millimeters (mm)", value: "mm" },
-      { label: "Inches (in)", value: "in" },
+      { label: "Inches (inch)", value: "inch" },
     ],
   },
 ] as const;

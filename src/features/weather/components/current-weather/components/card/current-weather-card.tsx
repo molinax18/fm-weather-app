@@ -1,16 +1,20 @@
-import type { CountryLocation } from "@/context/global/country.type";
-import { useGlobalContext } from "@/context/global/global.context";
-import { formatTemperature } from "@/features/weather/weather.util";
+import type {
+  HourlyForecast,
+  WeatherCurrent,
+} from "@/context/global/open-meteo/weather.type";
+import { useGlobalContext } from "@/context/global/open-meteo/global.context";
 import dayjs from "dayjs";
 import style from "./current-weather-card.module.css";
 
 interface Props {
-  data: CountryLocation;
+  location: WeatherCurrent;
+  info: HourlyForecast;
 }
 
-export default function CurrentWeatherCard({ data }: Props) {
-  const { countryConfig } = useGlobalContext();
-  const { city, condition, country, time, temperature } = data;
+export default function CurrentWeatherCard({ location, info }: Props) {
+  const { weatherConfig } = useGlobalContext();
+  const { city, country } = location;
+  const { time, apparentTemperature } = info;
 
   return (
     <article className={`flex-col p-card-sm ${style["current-weather-card"]}`}>
@@ -21,13 +25,14 @@ export default function CurrentWeatherCard({ data }: Props) {
         <span>{dayjs(time).format("dddd, MMM D, YYYY")}</span>
       </div>
       <div className={`${style["current-weather-temperature"]} gap-lg`}>
-        <img
+        {/* <img
           src={condition.icon}
           alt={condition.text}
           className={style["current-weather-image"]}
-        />
+        /> */}
+
         <strong className="title text-preset-2xl">
-          {formatTemperature(temperature, countryConfig.temperature)}
+          {apparentTemperature[weatherConfig.temperature]}°
         </strong>
       </div>
     </article>

@@ -2,10 +2,10 @@ import type {
   Precipitation,
   Temperature,
   WindSpeed,
-} from "@/shared/types/units";
-import type { CountryConfig } from "@/context/global/country.type";
+} from "@/shared/types/open-meteo/units";
+import type { WeatherConfig } from "@/context/global/open-meteo/global.type";
 
-export type UnitKeys = keyof Omit<CountryConfig, "measurementSystem">;
+export type UnitKeys = keyof Omit<WeatherConfig, "measurementSystem">;
 
 export interface UnitSettingOption {
   label: string;

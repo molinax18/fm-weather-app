@@ -2,7 +2,7 @@ import type {
   UnitKeys,
   UnitSettingOption,
 } from "@/features/unit-settings/unit.type";
-import { useGlobalContext } from "@/context/global/global.context";
+import { useGlobalContext } from "@/context/global/open-meteo/global.context";
 import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import CheckmarkIcon from "@/shared/components/svg/checkmark-icon";
 import Button from "@/shared/components/button/button";
@@ -14,9 +14,9 @@ interface Props {
 }
 
 export default function UnitItem({ option, type }: Props) {
-  const { countryConfig, dispatch } = useGlobalContext();
+  const { weatherConfig, dispatch } = useGlobalContext();
   const { toggleDropdown } = useDropdownContext();
-  const isSelectedOption = countryConfig[type] === option.value;
+  const isSelectedOption = weatherConfig[type] === option.value;
 
   return (
     <li className={style["unit-item"]}>

@@ -1,3 +1,5 @@
+import { round } from "./round";
+
 export interface Temperature {
   celsius: number;
   fahrenheit: number;
@@ -13,23 +15,26 @@ export interface Precipitation {
   inch: number;
 }
 
-export function temperatureFromCelsius(celsius: number): Temperature {
+export function temperatureFromCelsius(
+  celsius: number,
+  decimals = 0,
+): Temperature {
   return {
-    celsius,
-    fahrenheit: (celsius * 9) / 5 + 32,
+    celsius: round(celsius, decimals),
+    fahrenheit: round((celsius * 9) / 5 + 32, decimals),
   };
 }
 
-export function windSpeedFromKmh(kmh: number): WindSpeed {
+export function windSpeedFromKmh(kmh: number, decimals = 1): WindSpeed {
   return {
-    kmh,
-    mph: kmh / 1.60934,
+    kmh: round(kmh, decimals),
+    mph: round(kmh / 1.60934, decimals),
   };
 }
 
-export function precipitationFromMm(mm: number): Precipitation {
+export function precipitationFromMm(mm: number, decimals = 1): Precipitation {
   return {
-    mm,
-    inch: mm / 25.4,
+    mm: round(mm, decimals),
+    inch: round(mm / 25.4, decimals),
   };
 }

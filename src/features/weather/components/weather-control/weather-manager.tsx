@@ -1,4 +1,4 @@
-import { useGlobalContext } from "@/context/global/global.context";
+import { useGlobalContext } from "@/context/global/open-meteo/global.context";
 import CurrentWeather from "@/features/weather/components/current-weather/components/current-weather";
 import DailyForecast from "../weather-forecast/components/daily/daily-forecast";
 import HourlyForecast from "../weather-forecast/components/hourly/hourly-forecast";
@@ -6,7 +6,7 @@ import Loader from "@/shared/components/states/loader";
 import style from "./weather-manager.module.css";
 
 export default function WeatherManager() {
-  const { countryInfo, isLoading } = useGlobalContext();
+  const { weatherInfo, isLoading } = useGlobalContext();
 
   if (isLoading) {
     return (
@@ -16,16 +16,18 @@ export default function WeatherManager() {
     );
   }
 
-  if (!countryInfo) return null;
+  if (!weatherInfo) return null;
 
   return (
     <div className={`flex-col gap-lg ${style["weather-forecast-container"]}`}>
       <CurrentWeather
-        location={countryInfo.location}
-        current={countryInfo.current}
+        location={weatherInfo.current}
+        info={weatherInfo.forecast.hourly[0]}
       />
-      <DailyForecast data={countryInfo.forecast.day} />
-      <HourlyForecast data={countryInfo.forecast} />
+      {/* 
+        <DailyForecast data={weatherInfo.forecast.day} />
+      <HourlyForecast data={weatherInfo.forecast} />
+      */}
     </div>
   );
 }
