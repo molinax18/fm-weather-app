@@ -1,16 +1,21 @@
-import type { CountryForecast } from "@/context/global/country.type";
+import type {
+  DailyForecast,
+  HourlyForecast,
+} from "@/context/global/open-meteo/weather.type";
 import HourlyForecastDropdown from "./hourly-forecast-dropdown";
 import HourlyForecastCard from "./hourly-forecast-card";
 import useHourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast.hook";
+import dayjs from "dayjs";
 import style from "./hourly-forecast.module.css";
 
 interface Props {
-  data: CountryForecast;
+  hourly: HourlyForecast;
+  daily: DailyForecast;
 }
 
-export default function HourlyForecast({ data }: Props) {
-  const { currentDate, availableDays, handleCurrentDay, hoursByDate } =
-    useHourlyForecast(data);
+export default function HourlyForecast({ hourly, daily }: Props) {
+  const { availableDays, currentDate, handleCurrentDay, hourlyDataForDay } =
+    useHourlyForecast(hourly, daily);
 
   return (
     <section
@@ -19,21 +24,14 @@ export default function HourlyForecast({ data }: Props) {
       <header className={`gap-md ${style["hourly-forecast-header"]}`}>
         <h3 className="title">Hourly forecast</h3>
         <HourlyForecastDropdown
-          days={availableDays
-            .filter((day) => day.date !== currentDate)
-            .map((day) => day.name)}
-          onClick={(name) => {
-            const targetDay = availableDays.find(
-              (day) => day.name === String(name),
-            );
-            if (targetDay) handleCurrentDay(targetDay.index);
-          }}
-          currentDate={currentDate}
+          availableDays={availableDays}
+          onClick={handleCurrentDay}
+          currentDay={dayjs(currentDate).format("dddd")}
         />
       </header>
-      <div className="flex-col gap-md">
-        {hoursByDate.map((hour) => (
-          <HourlyForecastCard key={hour.time} data={hour} />
+      <div className={`flex-col gap-md ${style["hourly-forecast-content"]}`}>
+        {hourlyDataForDay.map((hour) => (
+          <HourlyForecastCard key={hour.date.toString()} hourlyInfo={hour} />
         ))}
       </div>
     </section>

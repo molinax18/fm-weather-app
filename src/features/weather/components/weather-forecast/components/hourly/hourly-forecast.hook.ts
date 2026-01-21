@@ -1,33 +1,54 @@
 import { useState } from "react";
-import type { CountryForecast } from "@/context/global/country.type";
+import type {
+  DailyForecast,
+  HourlyForecast,
+} from "@/context/global/open-meteo/weather.type";
+import type { Temperature } from "@/utils/open-meteo/transform-units";
 import dayjs from "dayjs";
 
-export default function useHourlyForecast(forecast: CountryForecast) {
-  const { day, hour } = forecast;
-  const [currentIndex, setSelectedIndex] = useState(0);
-  const currentDate = day[currentIndex].date;
+export interface HourlyInfo {
+  date: Date;
+  temperature: Temperature;
+  weather_code: number;
+}
 
-  const handleCurrentDay = (index: number) => {
-    setSelectedIndex(index);
-  };
+export default function useHourlyForecast(
+  hourly: HourlyForecast,
+  daily: DailyForecast,
+) {
+  const [currentDateIndex, setCurrentDayIndex] = useState(0);
+  const currentDate = daily.date[currentDateIndex];
 
-  const availableDays = day.map((day, index) => ({
-    name: dayjs(day.date).format("dddd"),
-    date: day.date,
+  const allDays = daily.date.map((date, index) => ({
+    label: dayjs(date).format("dddd"),
     index: index,
+    date: date,
   }));
 
-  const hoursByDate = hour.filter((hour) => {
-    const forecastTime = dayjs(hour.time);
-    const hourOfDay = forecastTime.hour();
-    const isMorningSlot = hourOfDay >= 3 && hourOfDay <= 10;
-    return hour.time.startsWith(currentDate) && isMorningSlot;
-  });
+  const handleCurrentDay = (name: string) => {
+    const targetDay = allDays.find((day) => day.label === name);
+    if (targetDay) setCurrentDayIndex(targetDay.index);
+  };
+
+  const availableDays = allDays
+    .filter((day) => !dayjs(day.date).isSame(currentDate, "day"))
+    .map((day) => day.label);
+
+  const hourlyDataForDay = hourly.date.reduce((acc, date, index) => {
+    if (dayjs(currentDate).isSame(date, "day")) {
+      acc.push({
+        date: hourly.date[index],
+        temperature: hourly.temperature[index],
+        weather_code: hourly.weather_code[index],
+      });
+    }
+    return acc;
+  }, [] as HourlyInfo[]);
 
   return {
     currentDate,
     handleCurrentDay,
     availableDays,
-    hoursByDate,
+    hourlyDataForDay,
   };
 }

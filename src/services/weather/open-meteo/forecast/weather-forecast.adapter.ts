@@ -5,6 +5,7 @@ import {
   temperatureFromCelsius,
   windSpeedFromKmh,
 } from "@/utils/open-meteo/transform-units";
+import dayjs from "dayjs";
 
 export function weatherForecastAdapter(
   weatherInfo: WeatherForecastResponse,
@@ -13,7 +14,7 @@ export function weatherForecastAdapter(
 
   return {
     current: {
-      date: new Date(current.time),
+      date: dayjs(current.time).toDate(),
       apparent_temperature: temperatureFromCelsius(
         current.apparent_temperature,
       ),
@@ -24,7 +25,7 @@ export function weatherForecastAdapter(
       wind_speed: windSpeedFromKmh(current.wind_speed_10m),
     },
     daily: {
-      date: daily.time.map((t) => new Date(t)),
+      date: daily.time.map((t) => dayjs(t).toDate()),
       temperature_max: daily.temperature_2m_max.map((tm) =>
         temperatureFromCelsius(tm),
       ),
@@ -34,7 +35,7 @@ export function weatherForecastAdapter(
       weather_code: [...daily.weather_code],
     },
     hourly: {
-      date: hourly.time.map((t) => new Date(t)),
+      date: hourly.time.map((t) => dayjs(t).toDate()),
       temperature: hourly.temperature_2m.map((tm) =>
         temperatureFromCelsius(tm),
       ),

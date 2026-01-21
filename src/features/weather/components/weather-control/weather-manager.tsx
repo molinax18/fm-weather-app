@@ -25,7 +25,10 @@ export default function WeatherManager() {
         current={weatherInfo.forecast.current}
       />
       <DailyForecast daily={weatherInfo.forecast.daily} />
-      {/*<HourlyForecast data={weatherInfo.forecast} />*/}
+      <HourlyForecast
+        hourly={weatherInfo.forecast.hourly}
+        daily={weatherInfo.forecast.daily}
+      />
     </div>
   );
 }

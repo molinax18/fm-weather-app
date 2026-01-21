@@ -3,19 +3,19 @@ import Button from "@/shared/components/button/button";
 import style from "./hourly-forecast.module.css";
 
 interface Props {
-  days: Array<string>;
+  availableDays: Array<string>;
   onClick: (day: string) => void;
 }
 
 export default function HourlyForecastDropdownContent({
-  days,
+  availableDays,
   onClick,
 }: Props) {
   const { toggleDropdown } = useDropdownContext();
 
   return (
     <ul>
-      {days.map((day) => {
+      {availableDays.map((day) => {
         return (
           <li key={day}>
             <Button
