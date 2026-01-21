@@ -13,18 +13,22 @@ export async function weatherForecastWithLocation(): Promise<
   const weatherForecast = await getWeatherForecast({
     latitude: address.latitude,
     longitude: address.longitude,
-    hourly: [
-      "temperature_2m",
+    current: [
       "apparent_temperature",
-      "wind_speed_10m",
       "precipitation",
+      "relative_humidity_2m",
+      "temperature_2m",
+      "weather_code",
+      "wind_speed_10m",
     ],
+    hourly: ["temperature_2m", "weather_code"],
+    daily: ["temperature_2m_max", "temperature_2m_min", "weather_code"],
     timezone: "auto",
   });
   if (!weatherForecast) return undefined;
 
   return {
-    current: userLocationAdapter(address),
+    location: userLocationAdapter(address),
     forecast: weatherForecastAdapter(weatherForecast),
   };
 }

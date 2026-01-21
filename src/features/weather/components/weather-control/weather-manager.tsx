@@ -21,8 +21,8 @@ export default function WeatherManager() {
   return (
     <div className={`flex-col gap-lg ${style["weather-forecast-container"]}`}>
       <CurrentWeather
-        location={weatherInfo.current}
-        info={weatherInfo.forecast.hourly[0]}
+        location={weatherInfo.location}
+        current={weatherInfo.forecast.current}
       />
       {/* 
         <DailyForecast data={weatherInfo.forecast.day} />

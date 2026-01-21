@@ -25,14 +25,14 @@ export function temperatureFromCelsius(
   };
 }
 
-export function windSpeedFromKmh(kmh: number, decimals = 1): WindSpeed {
+export function windSpeedFromKmh(kmh: number, decimals = 0): WindSpeed {
   return {
     kmh: round(kmh, decimals),
     mph: round(kmh / 1.60934, decimals),
   };
 }
 
-export function precipitationFromMm(mm: number, decimals = 1): Precipitation {
+export function precipitationFromMm(mm: number, decimals = 0): Precipitation {
   return {
     mm: round(mm, decimals),
     inch: round(mm / 25.4, decimals),

@@ -1,9 +1,9 @@
-import type { WeatherCurrent } from "@/context/global/open-meteo/weather.type";
+import type { WeatherLocation } from "@/context/global/open-meteo/weather.type";
 import type { UserLocationResponse } from "./user-location.type";
 
 export function userLocationAdapter(
   locationInfo: UserLocationResponse,
-): WeatherCurrent {
+): WeatherLocation {
   const { cityName, countryName } = locationInfo;
 
   return {

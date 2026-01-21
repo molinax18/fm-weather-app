@@ -4,24 +4,41 @@ import type {
   WindSpeed,
 } from "@/utils/open-meteo/transform-units";
 
-export interface HourlyForecast {
-  time: Date;
+export interface CurrentForecast {
+  date: Date;
   temperature: Temperature;
-  apparentTemperature: Temperature;
-  windSpeed: WindSpeed;
+  apparent_temperature: Temperature;
+  weather_code: number;
   precipitation: Precipitation;
+  relative_humidity: number;
+  wind_speed: WindSpeed;
+}
+
+export interface HourlyForecast {
+  date: Date[];
+  temperature: Temperature[];
+  weather_code: number[];
+}
+
+export interface DailyForecast {
+  date: Date[];
+  temperature_max: Temperature[];
+  temperature_min: Temperature[];
+  weather_code: number[];
 }
 
 export interface WeatherForecast {
-  hourly: HourlyForecast[];
+  current: CurrentForecast;
+  hourly: HourlyForecast;
+  daily: DailyForecast;
 }
 
-export interface WeatherCurrent {
+export interface WeatherLocation {
   country: string;
   city: string;
 }
 
 export interface WeatherInfo {
-  current: WeatherCurrent;
+  location: WeatherLocation;
   forecast: WeatherForecast;
 }
