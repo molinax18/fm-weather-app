@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type {
   DailyForecast,
   HourlyForecast,
@@ -19,31 +19,38 @@ export default function useHourlyForecast(
   const [currentDateIndex, setCurrentDayIndex] = useState(0);
   const currentDate = daily.date[currentDateIndex];
 
-  const allDays = daily.date.map((date, index) => ({
-    label: dayjs(date).format("dddd"),
-    index: index,
-    date: date,
-  }));
+  const allDays = useMemo(() => {
+    return daily.date.map((date, index) => ({
+      label: dayjs(date).format("dddd"),
+      index: index,
+      date: date,
+    }));
+  }, [daily.date]);
 
-  const handleCurrentDay = (name: string) => {
-    const targetDay = allDays.find((day) => day.label === name);
-    if (targetDay) setCurrentDayIndex(targetDay.index);
-  };
+  const handleCurrentDay = useCallback(
+    (name: string) => {
+      const targetDay = allDays.find((day) => day.label === name);
+      if (targetDay) setCurrentDayIndex(targetDay.index);
+    },
+    [currentDate],
+  );
 
   const availableDays = allDays
     .filter((day) => !dayjs(day.date).isSame(currentDate, "day"))
     .map((day) => day.label);
 
-  const hourlyDataForDay = hourly.date.reduce((acc, date, index) => {
-    if (dayjs(currentDate).isSame(date, "day")) {
-      acc.push({
-        date: hourly.date[index],
-        temperature: hourly.temperature[index],
-        weather_code: hourly.weather_code[index],
-      });
-    }
-    return acc;
-  }, [] as HourlyInfo[]);
+  const hourlyDataForDay = useMemo(() => {
+    return hourly.date.reduce((acc, date, index) => {
+      if (dayjs(currentDate).isSame(date, "day")) {
+        acc.push({
+          date: hourly.date[index],
+          temperature: hourly.temperature[index],
+          weather_code: hourly.weather_code[index],
+        });
+      }
+      return acc;
+    }, [] as HourlyInfo[]);
+  }, [currentDate]);
 
   return {
     currentDate,
