@@ -46,8 +46,6 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
     refetch: refetch,
   };
 
-  console.log(data);
-
   useEffect(() => {
     localStorage.setItem("user-config", JSON.stringify(weatherConfig));
   }, [weatherConfig]);

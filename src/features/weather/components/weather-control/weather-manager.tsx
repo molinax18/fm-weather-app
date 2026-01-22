@@ -1,7 +1,7 @@
 import { useGlobalContext } from "@/context/global/open-meteo/global.context";
 import CurrentWeather from "@/features/weather/components/current-weather/components/current-weather";
-import DailyForecast from "../weather-forecast/components/daily/daily-forecast";
-import HourlyForecast from "../weather-forecast/components/hourly/hourly-forecast";
+import DailyForecast from "@/features/weather/components/weather-forecast/components/daily/daily-forecast";
+import HourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast";
 import Loader from "@/shared/components/states/loader";
 import style from "./weather-manager.module.css";
 

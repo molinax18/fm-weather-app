@@ -1,4 +1,4 @@
-import type { WeatherSearchResponse } from "../weather.type";
+import type { WeatherSearchResponse } from "@/services/weather/open-meteo/weather.type";
 
 const baseUrl = "https://geocoding-api.open-meteo.com/v1/search?";
 
