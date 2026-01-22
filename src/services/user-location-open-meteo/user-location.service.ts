@@ -2,9 +2,7 @@ import type { UserLocationResponse } from "./user-location.type";
 
 const baseUrl = "https://free.freeipapi.com/api/json";
 
-export async function getApproximateUserLocation(): Promise<
-  UserLocationResponse | undefined
-> {
+export async function getApproximateUserLocation(): Promise<UserLocationResponse | null> {
   const response = await fetch(baseUrl);
 
   if (!response.ok) {
@@ -12,5 +10,5 @@ export async function getApproximateUserLocation(): Promise<
   }
 
   const data = (await response.json()) as UserLocationResponse;
-  return data ?? undefined;
+  return data ?? null;
 }

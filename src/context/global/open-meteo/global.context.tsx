@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { globalContextReducer } from "./global-config.reducer";
-import { useQuery } from "@tanstack/react-query";
 import type {
   GlobalContextProps,
   GlobalProviderProps,
   WeatherConfig,
 } from "./global.type";
-import { weatherForecastWithLocation } from "@/services/weather/weather-forecast-with-location.service";
+import { getWeatherForecastWithLocation } from "./global.util";
+import { useWeatherForecast } from "@/hooks/weather-forecast.hook";
 
 const INITIAL_CONFIG_STATE: WeatherConfig = {
   measurementSystem: "imperial",
@@ -27,23 +27,26 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
     },
   );
 
-  const weatherQuery = useQuery({
-    queryKey: ["weatherForecast"],
-    queryFn: weatherForecastWithLocation,
-    staleTime: 1000 * 60 * 30,
-    refetchOnWindowFocus: false,
-    throwOnError: false,
+  const { data, isLoading, isError, error, refetch } = useWeatherForecast({
+    fn: getWeatherForecastWithLocation,
+    options: {
+      staleTime: 1000 * 60 * 30,
+      refetchOnWindowFocus: false,
+      throwOnError: false,
+    },
   });
 
   const contextValue: GlobalContextProps = {
     weatherConfig,
     dispatch,
-    weatherInfo: weatherQuery.data || null,
-    isLoading: weatherQuery.isLoading,
-    isError: weatherQuery.isError,
-    error: weatherQuery.error,
-    refetch: weatherQuery.refetch,
+    weatherInfo: data || null,
+    isLoading: isLoading,
+    isError: isError,
+    error: error,
+    refetch: refetch,
   };
+
+  console.log(data);
 
   useEffect(() => {
     localStorage.setItem("user-config", JSON.stringify(weatherConfig));
