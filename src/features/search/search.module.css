@@ -20,6 +20,7 @@
 
 .search-menu {
   right: 0;
+  left: 0;
 }
 
 .search-content {
@@ -52,6 +53,7 @@
   }
 
   .search-menu {
+    left: auto;
     width: var(--hero-max-width-mobile);
   }
 }
