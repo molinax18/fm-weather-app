@@ -20,15 +20,27 @@
 
 .search-menu {
   right: 0;
+  left: 0;
 }
 
 .search-content {
   border: 1px solid var(--neutral-600);
 }
 
-.search-content-item button {
+.search-content-item-button {
   width: 100%;
   text-align: left;
+}
+
+.search-content-item-button div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.search-content-item-button-country-location {
+  color: var(--neutral-300);
+  font-size: var(--fs-xs);
 }
 
 @media (width >= 768px) {
@@ -41,6 +53,7 @@
   }
 
   .search-menu {
+    left: auto;
     width: var(--hero-max-width-mobile);
   }
 }

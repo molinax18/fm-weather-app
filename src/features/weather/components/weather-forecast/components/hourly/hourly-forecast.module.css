@@ -1,11 +1,25 @@
 .hourly-forecast {
   grid-area: hourly-forecast;
+  height: 845px;
 }
 
 .hourly-forecast-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.hourly-forecast-content {
+  overflow-y: scroll;
+}
+
+.hourly-forecast-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hourly-forecast-content::-webkit-scrollbar-thumb {
+  background: var(--neutral-600);
+  border-radius: 1rem;
 }
 
 .hourly-forecast-dropdown-menu {
@@ -34,6 +48,7 @@
   justify-content: space-between;
 
   min-height: var(--card-height);
+  margin-right: 6px;
 }
 
 .hourly-forecast-card-time {
@@ -48,11 +63,5 @@
 @media (width >= 640px) {
   .hourly-forecast-dropdown-button {
     font-size: var(--fs-md);
-  }
-}
-
-@media (width >= 1024px) {
-  .hourly-forecast {
-    max-width: 500px;
   }
 }

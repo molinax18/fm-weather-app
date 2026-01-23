@@ -1,13 +1,27 @@
 import type { ActionDispatch, ReactNode } from "react";
-import type { CountryConfig, CountryInfo } from "./country.type";
+import type {
+  Measurement,
+  Precipitation,
+  Temperature,
+  WindSpeed,
+} from "@/shared/types/units";
+import type { WeatherInfo } from "./weather.type";
+
+export interface WeatherConfig {
+  measurementSystem: Measurement;
+  temperature: Temperature;
+  windSpeed: WindSpeed;
+  precipitation: Precipitation;
+}
+
 export interface GlobalProviderProps {
   children: ReactNode;
 }
 
 export interface GlobalContextProps {
-  countryConfig: CountryConfig;
+  weatherConfig: WeatherConfig;
   dispatch: ActionDispatch<[action: GlobalActionType]>;
-  countryInfo: CountryInfo | null;
+  weatherInfo: WeatherInfo | null;
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
@@ -15,6 +29,6 @@ export interface GlobalContextProps {
 }
 
 export type GlobalActionType =
-  | { type: "UPDATE_CONFIG"; payload: Partial<CountryConfig> }
+  | { type: "UPDATE_CONFIG"; payload: Partial<WeatherConfig> }
   | { type: "RESET_CONFIG" }
   | { type: "SET_MEASUREMENT_SYSTEM"; payload: "imperial" | "metric" };

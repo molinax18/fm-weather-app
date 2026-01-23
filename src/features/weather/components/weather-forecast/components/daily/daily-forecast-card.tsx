@@ -1,16 +1,24 @@
-import type { CountryDay } from "@/context/global/country.type";
-import { formatTemperature } from "@/features/weather/weather.util";
+import type { Temperature } from "@/shared/utils/open-meteo/transform-units";
+import { getWeatherIconByCode } from "@/shared/utils/open-meteo/weather-icon.util";
 import { useGlobalContext } from "@/context/global/global.context";
 import style from "./daily-forecast.module.css";
 import dayjs from "dayjs";
 
-interface Props {
-  data: CountryDay;
+interface DailyInfo {
+  date: Date;
+  temperature_max: Temperature;
+  temperature_min: Temperature;
+  weather_code: number;
 }
 
-export default function DailyForecastCard({ data }: Props) {
-  const { countryConfig } = useGlobalContext();
-  const { condition, temperature, date } = data;
+interface Props {
+  dailyInfo: DailyInfo;
+}
+
+export default function DailyForecastCard({ dailyInfo }: Props) {
+  const { weatherConfig } = useGlobalContext();
+  const { date, temperature_max, temperature_min, weather_code } = dailyInfo;
+  const { src, alt } = getWeatherIconByCode(weather_code);
 
   return (
     <article
@@ -18,17 +26,15 @@ export default function DailyForecastCard({ data }: Props) {
     >
       <h4>{dayjs(date).format("ddd")}</h4>
       <img
-        src={condition.icon}
-        alt={condition.text}
+        src={`images/${src}`}
+        alt={alt}
         className={style["daily-forecast-image"]}
       />
       <div className={style["daily-forecast-temperature"]}>
         <strong className="title">
-          {formatTemperature(temperature.max, countryConfig.temperature)}
+          {`${temperature_max[weatherConfig.temperature]}°`}
         </strong>
-        <span>
-          {formatTemperature(temperature.min, countryConfig.temperature)}
-        </span>
+        <span>{`${temperature_min[weatherConfig.temperature]}°`}</span>
       </div>
     </article>
   );

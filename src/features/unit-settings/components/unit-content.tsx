@@ -8,10 +8,10 @@ import UnitSection from "./unit-section";
 import style from "./unit.module.css";
 
 export default function UnitContent() {
-  const { countryConfig, dispatch } = useGlobalContext();
+  const { weatherConfig, dispatch } = useGlobalContext();
   const { toggleDropdown } = useDropdownContext();
   const nextMeasurementSystem: Measurement =
-    countryConfig.measurementSystem === "imperial" ? "metric" : "imperial";
+    weatherConfig.measurementSystem === "imperial" ? "metric" : "imperial";
 
   return (
     <div

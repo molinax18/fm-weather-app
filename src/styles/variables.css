@@ -23,6 +23,7 @@
   --border-r-sm: 0.3rem;
   --border-r-lg: 1rem;
 
+  --fs-xs: 0.8rem;
   --fs-sm: 0.9rem;
   --fs-lg: 2rem;
   --fs-xl: 3rem;
@@ -35,5 +36,5 @@
   --spacing-3xl: 3.5rem;
 
   --hero-max-width-mobile: 600px;
-  --hero-max-width-desktop: 900px;
+  --hero-max-width-desktop: 800px;
 }

@@ -1,30 +1,33 @@
-import type { CountryHour } from "@/context/global/country.type";
+import type { HourlyInfo } from "./hourly-forecast.hook";
 import { useGlobalContext } from "@/context/global/global.context";
-import { formatTemperature } from "@/features/weather/weather.util";
 import dayjs from "dayjs";
 import style from "./hourly-forecast.module.css";
+import { getWeatherIconByCode } from "@/shared/utils/open-meteo/weather-icon.util";
 
 interface Props {
-  data: CountryHour;
+  hourlyInfo: HourlyInfo;
 }
 
-export default function HourlyForecastCard({ data }: Props) {
-  const { countryConfig } = useGlobalContext();
-  const { condition, temperature, time } = data;
+export default function HourlyForecastCard({ hourlyInfo }: Props) {
+  const { weatherConfig } = useGlobalContext();
+  const { temperature, date, weather_code } = hourlyInfo;
+  const { src, alt } = getWeatherIconByCode(weather_code);
+  const time =
+    dayjs(date).hour() >= 0 && dayjs(date).hour() <= 11 ? "AM" : "PM";
 
   return (
     <article className={`card-semi p-card-sm ${style["hourly-forecast-card"]}`}>
       <div className={`gap-xs ${style["hourly-forecast-card-time"]}`}>
         <img
-          src={condition.icon}
-          alt={condition.text}
+          src={`/images/${src}`}
+          alt={alt}
           className={style["hourly-forecast-card-image"]}
         />
-        <span className="title">{dayjs(time).format("H")} PM</span>
+        <span className="title">
+          {dayjs(date).format("H")} {time}
+        </span>
       </div>
-      <span className="subtitle">
-        {formatTemperature(temperature, countryConfig.temperature)}
-      </span>
+      <span className="subtitle">{`${temperature[weatherConfig.temperature]}°`}</span>
     </article>
   );
 }
