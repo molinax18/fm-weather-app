@@ -1,8 +1,6 @@
 import { useRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { useDropdown } from "@/shared/components/dropdown/dropdown.hook";
 import { DropdownContext } from "@/shared/components/dropdown/dropdown.context";
-import Trigger from "./dropdown-trigger";
-import Menu from "./dropdown-menu";
 import style from "./dropdown.module.css";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
@@ -32,6 +30,3 @@ export default function Dropdown({
     </DropdownContext.Provider>
   );
 }
-
-Dropdown.Trigger = Trigger;
-Dropdown.Menu = Menu;

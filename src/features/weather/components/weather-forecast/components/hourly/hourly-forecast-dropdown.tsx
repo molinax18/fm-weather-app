@@ -1,6 +1,8 @@
 import { DropdownIcon } from "@/shared/components/svg";
-import Dropdown from "@/shared/components/dropdown/components/dropdown";
 import HourlyForecastDropdownContent from "./hourly-forecast-dropdown-content";
+import DropdownMenu from "@/shared/components/dropdown/components/dropdown-menu";
+import DropdownTrigger from "@/shared/components/dropdown/components/dropdown-trigger";
+import Dropdown from "@/shared/components/dropdown/components/dropdown";
 import style from "./hourly-forecast.module.css";
 
 interface Props {
@@ -16,22 +18,22 @@ export default function HourlyForecastDropdown({
 }: Props) {
   return (
     <Dropdown>
-      <Dropdown.Trigger
+      <DropdownTrigger
         className={`gap-md ${style["hourly-forecast-dropdown-button"]}`}
         buttonTheme="semi"
       >
         {currentDay}
         <DropdownIcon />
-      </Dropdown.Trigger>
+      </DropdownTrigger>
 
-      <Dropdown.Menu
+      <DropdownMenu
         className={`flex-col gap-xs card p-card-xs ${style["hourly-forecast-dropdown-menu"]}`}
       >
         <HourlyForecastDropdownContent
           availableDays={availableDays}
           onClick={onClick}
         />
-      </Dropdown.Menu>
+      </DropdownMenu>
     </Dropdown>
   );
 }

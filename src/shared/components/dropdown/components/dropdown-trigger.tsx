@@ -6,7 +6,7 @@ interface Props extends ComponentPropsWithoutRef<typeof Button> {
   children: ReactNode;
 }
 
-export default function Trigger({ ...props }: Props) {
+export default function DropdownTrigger({ ...props }: Props) {
   const { isOpen, toggleDropdown } = useDropdownContext();
 
   return (

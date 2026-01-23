@@ -5,7 +5,7 @@ interface Props extends ComponentPropsWithoutRef<"label"> {
   children: ReactNode;
 }
 
-export default function ({ children, ...props }: Props) {
+export default function InputLabel({ children, ...props }: Props) {
   const { id } = useInputContext();
   return (
     <label htmlFor={id} {...props}>

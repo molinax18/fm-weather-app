@@ -6,7 +6,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
 }
 
-export default function Menu({ ...props }: Props) {
+export default function DropdownMenu({ ...props }: Props) {
   const { isOpen } = useDropdownContext();
   if (!isOpen) return null;
 

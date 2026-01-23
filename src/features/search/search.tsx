@@ -2,9 +2,11 @@ import { getCountryByName } from "@/services/open-meteo/search/country-by-name";
 import { SearchIcon } from "@/shared/components/svg";
 import { useQuery } from "@tanstack/react-query";
 import { useState, type FormEvent } from "react";
-import Input from "@/shared/components/input/components/input-root";
+import InputRoot from "@/shared/components/input/components/input-root";
+import InputControl from "@/shared/components/input/components/input-control";
 import Button from "@/shared/components/button/button";
 import Dropdown from "@/shared/components/dropdown/components/dropdown";
+import DropdownMenu from "@/shared/components/dropdown/components/dropdown-menu";
 import SearchContent from "./search-content";
 import style from "./search.module.css";
 
@@ -35,20 +37,20 @@ export default function Search() {
       className={`flex-col gap-md ${style["search-wrapper"]}`}
       onSubmit={onSubmit}
     >
-      <Input
+      <InputRoot
         id="search"
         name="search"
         className={`card p-card-xs gap-md ${style["search-input-container"]}`}
       >
         <SearchIcon />
 
-        <Input.Control
+        <InputControl
           placeholder="Search for a place..."
           className={`${style["search-input"]}`}
           value={search}
           onChange={(event) => setSearch(event.currentTarget.value)}
         />
-      </Input>
+      </InputRoot>
 
       <Button
         type="submit"
@@ -60,9 +62,9 @@ export default function Search() {
       </Button>
 
       <Dropdown isOpenByParent={isDropdownOpen} onToggle={toggleDropdown}>
-        <Dropdown.Menu className={style["search-menu"]}>
+        <DropdownMenu className={style["search-menu"]}>
           {data && <SearchContent data={data.results} />}
-        </Dropdown.Menu>
+        </DropdownMenu>
       </Dropdown>
     </form>
   );
