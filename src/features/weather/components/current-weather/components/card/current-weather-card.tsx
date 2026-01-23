@@ -5,6 +5,7 @@ import type {
 import { useGlobalContext } from "@/context/global/open-meteo/global.context";
 import dayjs from "dayjs";
 import style from "./current-weather-card.module.css";
+import { getWeatherIconByCode } from "@/utils/open-meteo/weather-icon.util";
 
 interface Props {
   location: WeatherLocation;
@@ -14,7 +15,8 @@ interface Props {
 export default function CurrentWeatherCard({ location, current }: Props) {
   const { weatherConfig } = useGlobalContext();
   const { city, country } = location;
-  const { date, temperature } = current;
+  const { date, temperature, weather_code } = current;
+  const { src, alt } = getWeatherIconByCode(weather_code);
 
   return (
     <article className={`flex-col p-card-sm ${style["current-weather-card"]}`}>
@@ -25,11 +27,11 @@ export default function CurrentWeatherCard({ location, current }: Props) {
         <span>{dayjs(date).format("dddd, MMM D, YYYY")}</span>
       </div>
       <div className={`${style["current-weather-temperature"]} gap-lg`}>
-        {/* <img
-          src={condition.icon}
-          alt={condition.text}
+        <img
+          src={`/images/${src}`}
+          alt={alt}
           className={style["current-weather-image"]}
-        /> */}
+        />
 
         <strong className="title text-preset-2xl">
           {temperature[weatherConfig.temperature]}°
