@@ -14,7 +14,7 @@ export default function Search() {
   const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
   const { data, refetch, isFetching } = useQuery({
-    queryKey: ["weatherSearch", search],
+    queryKey: ["weatherSearch"],
     queryFn: () => getCountryByName(search),
     enabled: false,
   });
