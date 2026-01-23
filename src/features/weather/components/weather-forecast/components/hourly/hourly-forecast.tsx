@@ -1,7 +1,7 @@
 import type {
   DailyForecast,
   HourlyForecast,
-} from "@/context/global/open-meteo/weather.type";
+} from "@/context/global/weather.type";
 import HourlyForecastDropdown from "./hourly-forecast-dropdown";
 import HourlyForecastCard from "./hourly-forecast-card";
 import useHourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast.hook";

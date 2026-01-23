@@ -2,7 +2,7 @@ import type {
   Precipitation,
   Temperature,
   WindSpeed,
-} from "@/utils/open-meteo/transform-units";
+} from "@/shared/utils/open-meteo/transform-units";
 
 export interface CurrentForecast {
   date: Date;

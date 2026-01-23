@@ -1,17 +1,16 @@
-import type { CountryConfig } from "./country.type";
-import type { GlobalActionType } from "./global.type";
+import type { GlobalActionType, WeatherConfig } from "./global.type";
 
-export const INITIAL_STATE: CountryConfig = {
+export const INITIAL_STATE: WeatherConfig = {
   measurementSystem: "imperial",
   temperature: "fahrenheit",
   windSpeed: "mph",
-  precipitation: "in",
+  precipitation: "inch",
 };
 
 export const globalContextReducer = (
-  state: CountryConfig,
+  state: WeatherConfig,
   action: GlobalActionType,
-): CountryConfig => {
+): WeatherConfig => {
   switch (action.type) {
     case "UPDATE_CONFIG":
       return {
@@ -24,14 +23,14 @@ export const globalContextReducer = (
         ? {
             measurementSystem: "metric",
             temperature: "celsius",
-            windSpeed: "kph",
+            windSpeed: "kmh",
             precipitation: "mm",
           }
         : {
             measurementSystem: "imperial",
             temperature: "fahrenheit",
             windSpeed: "mph",
-            precipitation: "in",
+            precipitation: "inch",
           };
 
     case "RESET_CONFIG":

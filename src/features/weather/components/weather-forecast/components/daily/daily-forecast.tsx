@@ -1,4 +1,4 @@
-import type { DailyForecast } from "@/context/global/open-meteo/weather.type";
+import type { DailyForecast } from "@/context/global/weather.type";
 import DailyForecastCard from "./daily-forecast-card";
 import style from "./daily-forecast.module.css";
 

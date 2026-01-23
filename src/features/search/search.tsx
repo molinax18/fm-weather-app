@@ -1,4 +1,4 @@
-import { getCountryByName } from "@/services/weather/open-meteo/search/country-by-name";
+import { getCountryByName } from "@/services/open-meteo/search/country-by-name";
 import { SearchIcon } from "@/shared/components/svg";
 import { useQuery } from "@tanstack/react-query";
 import { useState, type FormEvent } from "react";

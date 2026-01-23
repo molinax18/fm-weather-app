@@ -1,10 +1,10 @@
 import type { WeatherForecastResponse } from "./weather-forecast.type";
-import type { WeatherForecast } from "@/context/global/open-meteo/weather.type";
+import type { WeatherForecast } from "@/context/global/weather.type";
 import {
   precipitationFromMm,
   temperatureFromCelsius,
   windSpeedFromKmh,
-} from "@/utils/open-meteo/transform-units";
+} from "@/shared/utils/open-meteo/transform-units";
 import dayjs from "dayjs";
 
 export function weatherForecastAdapter(

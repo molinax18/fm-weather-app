@@ -3,6 +3,7 @@
   max-width: 1300px;
   padding: 0.8em var(--spacing-md);
   width: 98%;
+  min-height: 100dvh;
 }
 
 @media (width >= 1024px) {

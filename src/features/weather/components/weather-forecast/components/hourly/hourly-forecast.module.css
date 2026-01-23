@@ -1,7 +1,5 @@
 .hourly-forecast {
   grid-area: hourly-forecast;
-
-  max-height: 700px;
 }
 
 .hourly-forecast-header {

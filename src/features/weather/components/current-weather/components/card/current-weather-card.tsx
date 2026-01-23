@@ -1,11 +1,11 @@
 import type {
   CurrentForecast,
   WeatherLocation,
-} from "@/context/global/open-meteo/weather.type";
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+} from "@/context/global/weather.type";
+import { getWeatherIconByCode } from "@/shared/utils/open-meteo/weather-icon.util";
+import { useGlobalContext } from "@/context/global/global.context";
 import dayjs from "dayjs";
 import style from "./current-weather-card.module.css";
-import { getWeatherIconByCode } from "@/utils/open-meteo/weather-icon.util";
 
 interface Props {
   location: WeatherLocation;

@@ -1,11 +1,11 @@
-import type { WeatherLocation } from "@/context/global/open-meteo/weather.type";
-import type { WeatherForecastParams } from "@/services/weather/open-meteo/forecast/weather-forecast.type";
-import type { CountryInfoResponse } from "@/services/weather/open-meteo/weather.type";
-import { getWeatherForecastWithCountryName } from "@/context/global/open-meteo/global.util";
+import type { WeatherLocation } from "@/context/global/weather.type";
+import type { WeatherForecastParams } from "@/services/open-meteo/forecast/weather-forecast.type";
+import type { CountryInfoResponse } from "@/services/open-meteo/weather.type";
+import { getWeatherForecastWithCountryName } from "@/context/global/global.util";
 import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import { useEffect, useState } from "react";
-import { getWeatherForecast } from "@/services/weather/open-meteo/forecast/weather-forecast.service";
-import { forecastParams } from "@/services/weather/open-meteo/forecast/weather-forecast.constant";
+import { getWeatherForecast } from "@/services/open-meteo/forecast/weather-forecast.service";
+import { forecastParams } from "@/services/open-meteo/forecast/weather-forecast.constant";
 import { useWeatherForecast } from "@/hooks/weather-forecast.hook";
 import { CircleFlag } from "react-circle-flags";
 import Button from "@/shared/components/button/button";

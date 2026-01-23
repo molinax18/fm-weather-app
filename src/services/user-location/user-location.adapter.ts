@@ -1,4 +1,4 @@
-import type { WeatherLocation } from "@/context/global/open-meteo/weather.type";
+import type { WeatherLocation } from "@/context/global/weather.type";
 import type { UserLocationResponse } from "./user-location.type";
 
 export function userLocationAdapter(

@@ -1,4 +1,4 @@
 export type Measurement = "imperial" | "metric";
 export type Temperature = "celsius" | "fahrenheit";
-export type WindSpeed = "kph" | "mph";
-export type Precipitation = "mm" | "in";
+export type WindSpeed = "kmh" | "mph";
+export type Precipitation = "mm" | "inch";

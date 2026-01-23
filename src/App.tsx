@@ -1,4 +1,4 @@
-import { useGlobalContext } from "./context/global/open-meteo/global.context";
+import { useGlobalContext } from "./context/global/global.context";
 import { RetryIcon } from "./shared/components/svg";
 import WeatherMainLayout from "@/layout/weather-main";
 import WeatherManager from "./features/weather/components/weather-control/weather-manager";

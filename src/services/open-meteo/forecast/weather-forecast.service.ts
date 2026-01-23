@@ -1,4 +1,4 @@
-import type { WeatherForecast } from "@/context/global/open-meteo/weather.type";
+import type { WeatherForecast } from "@/context/global/weather.type";
 import { weatherForecastAdapter } from "./weather-forecast.adapter";
 import type { WeatherForecastParams } from "./weather-forecast.type";
 

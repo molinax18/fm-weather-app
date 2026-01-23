@@ -2,8 +2,8 @@ import { useCallback, useMemo, useState } from "react";
 import type {
   DailyForecast,
   HourlyForecast,
-} from "@/context/global/open-meteo/weather.type";
-import type { Temperature } from "@/utils/open-meteo/transform-units";
+} from "@/context/global/weather.type";
+import type { Temperature } from "@/shared/utils/open-meteo/transform-units";
 import dayjs from "dayjs";
 
 export interface HourlyInfo {

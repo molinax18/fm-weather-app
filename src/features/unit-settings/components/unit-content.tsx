@@ -1,5 +1,5 @@
 import { UNIT_SETTINGS } from "@/features/unit-settings/unit.constant";
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import { useGlobalContext } from "@/context/global/global.context";
 import { toCapitalize } from "@/shared/utils/capitalize";
 import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import type { Measurement } from "@/shared/types/units";

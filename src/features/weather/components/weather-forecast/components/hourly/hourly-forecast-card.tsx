@@ -1,8 +1,8 @@
 import type { HourlyInfo } from "./hourly-forecast.hook";
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import { useGlobalContext } from "@/context/global/global.context";
 import dayjs from "dayjs";
 import style from "./hourly-forecast.module.css";
-import { getWeatherIconByCode } from "@/utils/open-meteo/weather-icon.util";
+import { getWeatherIconByCode } from "@/shared/utils/open-meteo/weather-icon.util";
 
 interface Props {
   hourlyInfo: HourlyInfo;

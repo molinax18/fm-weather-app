@@ -1,6 +1,6 @@
-import type { Temperature } from "@/utils/open-meteo/transform-units";
-import { getWeatherIconByCode } from "@/utils/open-meteo/weather-icon.util";
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import type { Temperature } from "@/shared/utils/open-meteo/transform-units";
+import { getWeatherIconByCode } from "@/shared/utils/open-meteo/weather-icon.util";
+import { useGlobalContext } from "@/context/global/global.context";
 import style from "./daily-forecast.module.css";
 import dayjs from "dayjs";
 

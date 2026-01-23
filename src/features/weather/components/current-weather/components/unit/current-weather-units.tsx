@@ -1,5 +1,5 @@
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
-import type { CurrentForecast } from "@/context/global/open-meteo/weather.type";
+import { useGlobalContext } from "@/context/global/global.context";
+import type { CurrentForecast } from "@/context/global/weather.type";
 import CurrentWeatherUnitCard from "./current-weather-unit-card";
 import style from "./current-weather-unit.module.css";
 

@@ -2,7 +2,7 @@ import type {
   UnitKeys,
   UnitSettingOption,
 } from "@/features/unit-settings/unit.type";
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import { useGlobalContext } from "@/context/global/global.context";
 import { useDropdownContext } from "@/shared/components/dropdown/dropdown.context";
 import CheckmarkIcon from "@/shared/components/svg/checkmark-icon";
 import Button from "@/shared/components/button/button";

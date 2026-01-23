@@ -4,7 +4,7 @@ import style from "./current-weather.module.css";
 import type {
   WeatherLocation,
   CurrentForecast,
-} from "@/context/global/open-meteo/weather.type";
+} from "@/context/global/weather.type";
 
 interface Props {
   location: WeatherLocation;

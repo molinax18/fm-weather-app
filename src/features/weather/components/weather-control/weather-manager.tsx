@@ -1,4 +1,4 @@
-import { useGlobalContext } from "@/context/global/open-meteo/global.context";
+import { useGlobalContext } from "@/context/global/global.context";
 import CurrentWeather from "@/features/weather/components/current-weather/components/current-weather";
 import DailyForecast from "@/features/weather/components/weather-forecast/components/daily/daily-forecast";
 import HourlyForecast from "@/features/weather/components/weather-forecast/components/hourly/hourly-forecast";

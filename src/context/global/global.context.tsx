@@ -1,21 +1,24 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { globalContextReducer } from "./global-config.reducer";
-import { useQuery } from "@tanstack/react-query";
-import { fetchWeatherData } from "./global.util";
-import type { GlobalContextProps, GlobalProviderProps } from "./global.type";
-import type { CountryConfig } from "./country.type";
+import type {
+  GlobalContextProps,
+  GlobalProviderProps,
+  WeatherConfig,
+} from "./global.type";
+import { getWeatherForecastWithLocation } from "./global.util";
+import { useWeatherForecast } from "@/hooks/weather-forecast.hook";
 
-const INITIAL_CONFIG_STATE: CountryConfig = {
+const INITIAL_CONFIG_STATE: WeatherConfig = {
   measurementSystem: "imperial",
   temperature: "fahrenheit",
   windSpeed: "mph",
-  precipitation: "in",
+  precipitation: "inch",
 } as const;
 
 const GlobalContext = createContext<GlobalContextProps | null>(null);
 
 export function GlobalProvider({ children }: GlobalProviderProps) {
-  const [countryConfig, dispatch] = useReducer(
+  const [weatherConfig, dispatch] = useReducer(
     globalContextReducer,
     INITIAL_CONFIG_STATE,
     (prev) => {
@@ -24,27 +27,28 @@ export function GlobalProvider({ children }: GlobalProviderProps) {
     },
   );
 
-  const weatherQuery = useQuery({
-    queryKey: ["weatherForecast"],
-    queryFn: fetchWeatherData,
-    staleTime: 1000 * 60 * 30,
-    refetchOnWindowFocus: false,
-    throwOnError: false,
+  const { data, isLoading, isError, error, refetch } = useWeatherForecast({
+    fn: getWeatherForecastWithLocation,
+    options: {
+      staleTime: 1000 * 60 * 30,
+      refetchOnWindowFocus: false,
+      throwOnError: false,
+    },
   });
 
   const contextValue: GlobalContextProps = {
-    countryConfig: countryConfig,
+    weatherConfig,
     dispatch,
-    countryInfo: weatherQuery.data || null,
-    isLoading: weatherQuery.isLoading,
-    isError: weatherQuery.isError,
-    error: weatherQuery.error,
-    refetch: weatherQuery.refetch,
+    weatherInfo: data || null,
+    isLoading: isLoading,
+    isError: isError,
+    error: error,
+    refetch: refetch,
   };
 
   useEffect(() => {
-    localStorage.setItem("user-config", JSON.stringify(countryConfig));
-  }, [countryConfig]);
+    localStorage.setItem("user-config", JSON.stringify(weatherConfig));
+  }, [weatherConfig]);
 
   return (
     <GlobalContext.Provider value={contextValue}>
