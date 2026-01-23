@@ -13,12 +13,9 @@
 @media (width >= 1024px) {
   .weather-forecast-container {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto auto 400px;
     grid-template-areas:
       "current-weather current-weather hourly-forecast"
-      "current-weather current-weather hourly-forecast"
       "daily-forecast daily-forecast hourly-forecast";
-
-    max-height: 70vh;
   }
 }

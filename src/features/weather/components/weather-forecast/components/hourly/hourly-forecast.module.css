@@ -1,5 +1,6 @@
 .hourly-forecast {
   grid-area: hourly-forecast;
+  height: 845px;
 }
 
 .hourly-forecast-header {
@@ -62,11 +63,5 @@
 @media (width >= 640px) {
   .hourly-forecast-dropdown-button {
     font-size: var(--fs-md);
-  }
-}
-
-@media (width >= 1024px) {
-  .hourly-forecast {
-    max-width: 500px;
   }
 }
