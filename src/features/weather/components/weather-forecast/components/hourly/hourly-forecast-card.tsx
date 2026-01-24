@@ -19,7 +19,7 @@ export default function HourlyForecastCard({ hourlyInfo }: Props) {
     <article className={`card-semi p-card-sm ${style["hourly-forecast-card"]}`}>
       <div className={`gap-xs ${style["hourly-forecast-card-time"]}`}>
         <img
-          src={`/images/${src}`}
+          src={`images/${src}`}
           alt={alt}
           className={style["hourly-forecast-card-image"]}
         />

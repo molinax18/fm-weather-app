@@ -1,0 +1,63 @@
+@import "./variables.css";
+
+/* Button */
+.button[data-theme="dark"] {
+  background-color: var(--neutral-800);
+}
+
+.button[data-theme="blue"] {
+  background-color: var(--blue-700);
+}
+
+.button[data-theme="semi"] {
+  background-color: var(--neutral-600);
+}
+
+.button[data-theme="dark"]:not(:disabled):hover {
+  background-color: var(--neutral-700);
+}
+
+.button[data-theme="blue"]:not(:disabled):hover {
+  background-color: var(--blue-500);
+}
+
+.button[data-theme="semi"]:not(:disabled):hover {
+  background-color: var(--neutral-500);
+}
+
+.button {
+  border: none;
+  border-radius: var(--border-r-sm);
+  color: var(--neutral-200);
+  cursor: pointer;
+  padding: 0.5em 0.8em;
+  transition: background 0.2s ease-out;
+}
+
+.button:disabled {
+  background-color: var(--dark-gray);
+  pointer-events: none;
+}
+
+/* Card */
+.card {
+  background-color: var(--neutral-800);
+  border-radius: var(--border-r-sm);
+}
+
+.card-semi {
+  background-color: var(--neutral-700);
+  border-radius: var(--border-r-sm);
+}
+
+.title {
+  font-family: var(--ff-bricolage-grotesque);
+  font-weight: 700;
+  color: var(--neutral-0);
+}
+
+.subtitle {
+  font-family: var(--ff-bricolage-grotesque);
+  font-weight: 400;
+  color: var(--neutral-300);
+}

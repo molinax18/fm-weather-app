@@ -1,14 +1,10 @@
-@layer reset, base, components, utilities;
-
-@import "./reset.css" layer(reset);
+@import "./reset.css";
 @import "./variables.css";
-@import "./components/index.css" layer(components);
-@import "./utilities.css" layer(utilities);
+@import "./components.css";
+@import "./utilities.css";
 
-@layer base {
-  body {
+body {
     background-color: var(--neutral-900);
     color: var(--neutral-200);
     font-family: var(--ff-dm-sans);
   }
-}
