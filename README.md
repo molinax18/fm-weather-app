@@ -73,3 +73,4 @@ In future projects, I want to focus on adding unit and integration tests to ensu
 
 - Frontend Mentor - [@molinax18](https://www.frontendmentor.io/profile/molinax18)
 - GitHub - [@molinax18](https://github.com/molinax18)
+- LinkedIn - [@Ariel Molina](https://www.linkedin.com/in/ariel-molina-ortiz-b1a443271/)
