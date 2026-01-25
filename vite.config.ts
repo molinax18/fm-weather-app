@@ -16,4 +16,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  base: "https:molinax18.github.io/fm-weather-app",
 });

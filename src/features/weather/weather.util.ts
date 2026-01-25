@@ -5,8 +5,8 @@ import type {
 } from "@/shared/types/units";
 
 type TempUnit = { celsius: number; fahrenheit: number };
-type WindUnit = { kph: number; mph: number };
-type PressureUnit = { mm: number; in: number };
+type WindUnit = { kmh: number; mph: number };
+type PressureUnit = { mm: number; inch: number };
 
 export const formatTemperature = (
   values: TempUnit,
@@ -18,8 +18,8 @@ export const formatTemperature = (
 };
 
 export const formatWind = (values: WindUnit, unit: WindSpeed): string => {
-  return unit === "kph"
-    ? `${Math.round(values.kph)} kph`
+  return unit === "kmh"
+    ? `${Math.round(values.kmh)} kph`
     : `${Math.round(values.mph)} mph`;
 };
 
@@ -29,5 +29,5 @@ export const formatPrecipitation = (
 ): string => {
   return unit === "mm"
     ? `${Math.round(values.mm)} mm`
-    : `${Math.round(values.in)} in`;
+    : `${Math.round(values.inch)} inch`;
 };
