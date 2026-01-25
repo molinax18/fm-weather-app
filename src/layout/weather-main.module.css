@@ -3,7 +3,7 @@
   padding: 0.8em var(--spacing-md);
   width: 98%;
   min-height: 100dvh;
-  max-width: 1200px;
+  max-width: 65rem;
 }
 
 @media (width >= 1024px) {
