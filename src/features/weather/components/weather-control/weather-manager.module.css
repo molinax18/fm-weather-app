@@ -2,8 +2,8 @@
   align-self: center;
 
   display: inline-flex;
-  order: 0;
   align-items: center;
+  order: 0;
 }
 
 .weather-manager-loading > span {
@@ -13,9 +13,12 @@
 @media (width >= 1024px) {
   .weather-forecast-container {
     display: grid;
-    grid-template-columns: auto auto 400px;
+    grid-template-rows: 1fr;
     grid-template-areas:
       "current-weather current-weather hourly-forecast"
       "daily-forecast daily-forecast hourly-forecast";
+    
+    max-height: 48rem;
+    overflow: hidden;
   }
 }

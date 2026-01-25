@@ -10,12 +10,14 @@ export default function Button({
   className,
   buttonTheme,
   children,
+  type,
   ...props
 }: Props) {
   return (
     <button
       {...props}
-      data-theme={buttonTheme || "dark"}
+      type={type ?? "button"}
+      data-theme={buttonTheme ?? "dark"}
       className={`button ${className ?? ""}`}
     >
       {children}
