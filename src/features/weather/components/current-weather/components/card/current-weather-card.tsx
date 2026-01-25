@@ -28,7 +28,7 @@ export default function CurrentWeatherCard({ location, current }: Props) {
       </div>
       <div className={`${style["current-weather-temperature"]} gap-lg`}>
         <img
-          src={`/images/${src}`}
+          src={`images/${src}`}
           alt={alt}
           className={style["current-weather-image"]}
         />
