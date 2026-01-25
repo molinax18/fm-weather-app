@@ -14,9 +14,6 @@ This is a solution to the [Weather app challenge on Frontend Mentor](https://www
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -37,85 +34,42 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Weather App Screenshot](./public/screenshots/view-page.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution](https://github.com/molinax18/fm-weather-app)
+- [Live Site](https://molinax18.github.io/fm-weather-app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Vite](https://vitejs.dev/) - Build tool
+- [TanStack Query](https://tanstack.com/query/latest) - For data fetching
+- [Open-Meteo API](https://open-meteo.com/) - Weather data
+- CSS Modules - For component styling
+- [Day.js](https://day.js.org/) - Date manipulation
+- [React Circle Flags](https://www.npmjs.com/package/react-circle-flags) - Country flags
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+During this project, I learned how to integrate external APIs like Open-Meteo for real-time weather data. I also improved my skills in using React Query for efficient data fetching and caching, and managing global state with React Context. Additionally, working with TypeScript helped ensure type safety across the application, and using CSS Modules for component-specific styling kept the styles organized and scoped.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+In future projects, I want to focus on adding unit and integration tests to ensure code reliability. I'd also like to explore more advanced state management solutions like Zustand or Redux Toolkit, and improve accessibility features for better user experience.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Open-Meteo API Documentation](https://open-meteo.com/en/docs) - For weather data integration
+- [TanStack Query Documentation](https://tanstack.com/query/latest/docs/react/overview) - For data fetching best practices
+- [React Circle Flags](https://www.npmjs.com/package/react-circle-flags) - For displaying country flags
+- [Frontend Mentor](https://www.frontendmentor.io/) - For design challenges and community feedback
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@molinax18](https://www.frontendmentor.io/profile/molinax18)
+- GitHub - [@molinax18](https://github.com/molinax18)
