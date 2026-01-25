@@ -4,7 +4,7 @@
 @import "./utilities.css";
 
 body {
-    background-color: var(--neutral-900);
-    color: var(--neutral-200);
-    font-family: var(--ff-dm-sans);
-  }
+  background-color: var(--neutral-900);
+  color: var(--neutral-200);
+  font-family: var(--ff-dm-sans);
+}
