@@ -27,13 +27,10 @@ export default function useHourlyForecast(
     }));
   }, [daily.date]);
 
-  const handleCurrentDay = useCallback(
-    (name: string) => {
-      const targetDay = allDays.find((day) => day.label === name);
-      if (targetDay) setCurrentDayIndex(targetDay.index);
-    },
-    [currentDate],
-  );
+  const handleCurrentDay = (name: string) => {
+    const targetDay = allDays.find((day) => day.label === name);
+    if (targetDay) setCurrentDayIndex(targetDay.index);
+  };
 
   const availableDays = allDays
     .filter((day) => !dayjs(day.date).isSame(currentDate, "day"))

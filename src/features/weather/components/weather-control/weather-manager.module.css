@@ -17,7 +17,7 @@
     grid-template-areas:
       "current-weather current-weather hourly-forecast"
       "daily-forecast daily-forecast hourly-forecast";
-    
+
     max-height: 48rem;
     overflow: hidden;
   }
