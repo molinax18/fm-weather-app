@@ -19,5 +19,6 @@ export function parseWeatherURL(params: WeatherParams) {
     });
   }
 
+  urlObj.searchParams.append("timezone", "auto");
   return urlObj.toString();
 }
